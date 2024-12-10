@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:mstns="http://tempuri.org/TaskTextDataSet.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="http://tempuri.org/TaskTextDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/TaskTextDataSet.xsd" id="TaskTextDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="TaskTextDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TaskText">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FormatString">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" default="''" name="AlertMessage">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaskTextArgs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:ReadOnly="true" msdata:AutoIncrement="true" name="ArgID" type="xs:int" />
+              <xs:element name="ArgType" type="xs:int" />
+              <xs:element name="ArgValue">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="Constraint1">
+      <xs:selector xpath=".//mstns:TaskText" />
+      <xs:field xpath="mstns:Title" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="TaskTextArgs_Constraint1">
+      <xs:selector xpath=".//mstns:TaskTextArgs" />
+      <xs:field xpath="mstns:ArgID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

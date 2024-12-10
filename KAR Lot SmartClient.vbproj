@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6072BF1F-07CB-4FE9-80F9-B836EFD85357}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>KAR_Lot_SmartClient.My.MyApplication</StartupObject>
+    <RootNamespace>KAR_Lot_SmartClient</RootNamespace>
+    <AssemblyName>KARLotSmartClient</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetZone>LocalIntranet</TargetZone>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AssemblyOriginatorKeyFile>karlot.pfx</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Mac\Home\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/dev/dispatch/</UpdateUrl>
+    <SupportUrl>http://www.karservices.com</SupportUrl>
+    <ProductName>KAR Lot Dispatch</ProductName>
+    <PublisherName>KAR Services</PublisherName>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>42</ApplicationRevision>
+    <ApplicationVersion>2.3.4.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>KARLotSmartClient.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>KARLotSmartClient.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="KarLotBO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\KarLotBO.dll</HintPath>
+    </Reference>
+    <Reference Include="klCommonTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\klCommonTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="KLMessage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\KLMessage.dll</HintPath>
+    </Reference>
+    <Reference Include="klMessageController, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\klMessageController.dll</HintPath>
+    </Reference>
+    <Reference Include="klMessageViewForm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\klMessageViewForm.dll</HintPath>
+    </Reference>
+    <Reference Include="klTask, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\klTask.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.reportviewer.processingobjectmodel, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\microsoft.reportviewer.processingobjectmodel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TrailerMove, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\TrailerMove.dll</HintPath>
+    </Reference>
+    <Reference Include="WizardControl, Version=1.0.2834.18637, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\WizardControl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveMovesGridView.Designer.vb">
+      <DependentUpon>ActiveMovesGridView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveMovesGridView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActiveTrailerView.Designer.vb">
+      <DependentUpon>ActiveTrailerView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveTrailerView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="code\ApiDataConverter.vb" />
+    <Compile Include="code\ApplicationEvents.vb" />
+    <Compile Include="BarcodesForm.Designer.vb">
+      <DependentUpon>BarcodesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cactus.Designer.vb">
+      <DependentUpon>Cactus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Cactus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CallOutLocations.Designer.vb">
+      <DependentUpon>CallOutLocations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CallOutLocations.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelMoves.Designer.vb">
+      <DependentUpon>CancelMoves.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CancelMoves.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelPrecoolRequestForm.Designer.vb">
+      <DependentUpon>CancelPrecoolRequestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CancelPrecoolRequestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Carriers.Designer.vb">
+      <DependentUpon>Carriers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Carriers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientViewTrailer.Designer.vb">
+      <DependentUpon>ClientViewTrailer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ClientViewTrailer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="code\KarLotFile.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="code\DataServices.vb" />
+    <Compile Include="DateRangeDialog.Designer.vb">
+      <DependentUpon>DateRangeDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DateRangeDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EULA.Designer.vb">
+      <DependentUpon>EULA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EULA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="code\Global.vb" />
+    <Compile Include="code\KLot.vb" />
+    <Compile Include="LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveTrailers.Designer.vb">
+      <DependentUpon>MoveTrailers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MoveTrailers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="code\MyRendering.vb" />
+    <Compile Include="OpenTasks.Designer.vb">
+      <DependentUpon>OpenTasks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OpenTasks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlantMap.Designer.vb">
+      <DependentUpon>PlantMap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PlantMap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreCoolForm.Designer.vb">
+      <DependentUpon>PreCoolForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PreCoolForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrecoolWizardForm.Designer.vb">
+      <DependentUpon>PrecoolWizardForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrecoolWizardForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintPreview.Designer.vb">
+      <DependentUpon>PrintPreview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.vb">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tasking\TaskTextingForm.Designer.vb">
+      <DependentUpon>TaskTextingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tasking\TaskTextingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaskRequest.Designer.vb">
+      <DependentUpon>TaskRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TaskRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrailerRequest.Designer.vb">
+      <DependentUpon>TrailerRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TrailerRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTrailerInfo.Designer.vb">
+      <DependentUpon>UpdateTrailerInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTrailerInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserTasks.Designer.vb">
+      <DependentUpon>UserTasks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserTasks.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Web References\karservices.cactus.smartclient\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\karservices.cactus.webservices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="YardCheckDetail.Designer.vb">
+      <DependentUpon>YardCheckDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="YardCheckDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YardCheckReview.Designer.vb">
+      <DependentUpon>YardCheckReview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="YardCheckReview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ActiveTrailerView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ActiveTrailerView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cactus.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Cactus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintPreview.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrintPreview.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="karlot.pfx" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\BarcodeDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://guymon-ok.karservices.com/Webservice/Eservice.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\karservices.cactus.smartclient\</RelPath>
+      <UpdateFromURL>http://guymon-ok.karservices.com/Webservice/Eservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>KAR_Lot_SmartClient_karservices_cactus_smartclient_kar_smartclient_webservice</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://guymon-ok.karservices.com/Webservice/service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\karservices.cactus.webservices\</RelPath>
+      <UpdateFromURL>http://guymon-ok.karservices.com/Webservice/service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>KAR_Lot_SmartClient_karservices_cactus_webservices_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Web References\karservices.cactus.smartclient\BarcodeDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\karservices.cactus.webservices\service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ActiveMovesGridView.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ActiveMovesGridView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActiveTrailerList.rdlc" />
+    <EmbeddedResource Include="BarcodesForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BarcodesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CallOutLocations.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CallOutLocations.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelMoves.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CancelMoves.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelPrecoolRequestForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CancelPrecoolRequestForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Carriers.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Carriers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientViewTrailer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ClientViewTrailer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateRangeDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DateRangeDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EULA.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EULA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveTrailers.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MoveTrailers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OpenTasks.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OpenTasks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlantMap.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlantMap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreCoolForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PreCoolForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrecoolWizardForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrecoolWizardForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="SettingsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tasking\TaskTextingForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TaskTextingForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskRequest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TaskRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TrailerMoveLog.rdlc" />
+    <EmbeddedResource Include="TrailerRequest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TrailerRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTrailerInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UpdateTrailerInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTasks.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UserTasks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YardCheckDetail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>YardCheckDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YardCheckReview.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>YardCheckReview.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <BaseApplicationManifest Include="My Project\app.manifest" />
+    <None Include="Web References\karservices.cactus.smartclient\Building.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\Carrier.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\Door.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\KarLotUser.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\TasksDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\TasksDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\Trailer.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\YardCheckReferenceDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\YardCheckReferenceDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\YardCheckReview.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\YardCheckReview.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\karservices.cactus.webservices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\karservices.cactus.webservices\service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ADODB">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="favicon.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="KarDoor">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="KarLotBO">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="KarLotTrailer">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="klCommonTypes">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="KLMessage">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="klMessageController">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="klMessageViewForm">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="klTask">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="trailer.ico">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="TrailerMove">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="WizardControl">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KAR Lot SmartClient_TemporaryKey.pfx" />
+    <None Include="Web References\karservices.cactus.smartclient\ActiveTrailerDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\ActiveTrailerDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\eservice.wsdl" />
+    <None Include="Web References\karservices.cactus.smartclient\MovesDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\MovesDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\PreCoolTrailerTO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\TaskTextArgTO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\TaskTextDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\TaskTextDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\TrailerMoveTO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\UpdateTrailerDataSet.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.smartclient\UpdateTrailerDataSet.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\loader%28green-slider%29%281%29.gif" />
+    <None Include="Resources\dry van trailer1.jpg" />
+    <None Include="Resources\trailer.jpg" />
+    <None Include="Resources\loader.gif" />
+    <None Include="Web References\karservices.cactus.smartclient\WsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\karservices.cactus.webservices\InboundQuestions.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Resources\SmallPallet.JPG" />
+    <None Include="Resources\dispatch_start.png" />
+    <None Include="Resources\dispatch_bg640x480.png" />
+    <Content Include="favicon.ico" />
+    <None Include="Resources\plant_overview.png" />
+    <Content Include="trailer.ico" />
+    <None Include="Web References\karservices.cactus.smartclient\eservice.disco" />
+    <!--<None Include="webextantllc.pfx" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KarDoor\KarDoor.vbproj">
+      <Project>{F55C3A67-F5B4-4AD9-93A1-BA37410AB12C}</Project>
+      <Name>KarDoor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KarLotTrailer\KarLotTrailer.vbproj">
+      <Project>{2F0D064A-B7F8-4FAC-BC6E-74F3107438CA}</Project>
+      <Name>KarLotTrailer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KlDispatchServices\KlDispatchServices.csproj">
+      <Project>{344A1102-20AA-4F70-86D7-AC7A01334A9B}</Project>
+      <Name>KlDispatchServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--<PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\arm64\signtool.exe" sign /f "$(ProjectDir)\webextantllc.pfx" /p Jj1930@wx "$(ProjectDir)\bin\release\KARLotSmartClient.exe"</PostBuildEvent>
+  </PropertyGroup>-->
+</Project>

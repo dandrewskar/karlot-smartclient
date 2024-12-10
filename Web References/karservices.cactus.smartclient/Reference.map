@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=TaskTextDataSet" filename="TaskTextDataSet.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=ActiveTrailerDataSet" filename="ActiveTrailerDataSet.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?wsdl" filename="Eservice.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=UpdateTrailerDataSet" filename="UpdateTrailerDataSet.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=MovesDataSet" filename="MovesDataSet.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?disco" filename="Eservice.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=TasksDataSet" filename="TasksDataSet.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=BarcodeDataSet" filename="BarcodeDataSet.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=YardCheckReview" filename="YardCheckReview.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=YardCheckReferenceDataSet" filename="YardCheckReferenceDataSet.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

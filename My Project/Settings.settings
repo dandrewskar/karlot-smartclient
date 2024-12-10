@@ -1,0 +1,93 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="KAR_Lot_SmartClient_karservices_cactus_smartclient_kar_smartclient_webservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://guymon-ok.karservices.com/Webservice/Eservice.asmx</Value>
+    </Setting>
+    <Setting Name="EnhancedWebServicePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/webservice/eservice.asmx</Value>
+    </Setting>
+    <Setting Name="BasicWebServicePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/webservice/service.asmx</Value>
+    </Setting>
+    <Setting Name="DataExportPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\karlot\export</Value>
+    </Setting>
+    <Setting Name="DataCacheDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\karlot\cache</Value>
+    </Setting>
+    <Setting Name="ConnectionType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Network</Value>
+    </Setting>
+    <Setting Name="KAR_Lot_SmartClient_karservices_cactus_webservices_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://guymon-ok.karservices.com/Webservice/service.asmx</Value>
+    </Setting>
+    <Setting Name="CarriersCacheFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">carriers.xml</Value>
+    </Setting>
+    <Setting Name="InboundSheetCacheFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">inbound.xml</Value>
+    </Setting>
+    <Setting Name="ActiveTrailersCacheFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ActiveTrailers.xml</Value>
+    </Setting>
+    <Setting Name="StationID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TMP</Value>
+    </Setting>
+    <Setting Name="WashMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">WashOnly</Value>
+    </Setting>
+    <Setting Name="HelpURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/help/karlot%20faq.html</Value>
+    </Setting>
+    <Setting Name="LayoutURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/layout.kar.txt</Value>
+    </Setting>
+    <Setting Name="BackgroundURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/dispatch_bg.png</Value>
+    </Setting>
+    <Setting Name="EnhancedTasking" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="LocalKarLotServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">guymon-ok.karservices.com</Value>
+    </Setting>
+    <Setting Name="RemoteWebServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">guymon-ok.karservices.com</Value>
+    </Setting>
+    <Setting Name="LocalServerPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="RemoteServerPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">80</Value>
+    </Setting>
+    <Setting Name="HttpsRemote" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AllowTrailerCheckInOut" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AllowBarcodeActivation" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ApiKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SomeApiKey</Value>
+    </Setting>
+    <Setting Name="ApiBaseURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://guymon-ok.karservices.com/api/</Value>
+    </Setting>
+    <Setting Name="ViewLegacyPalletInfoOnDockCallout" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ViewLegacyPalletInfoOnDockCallin" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CanEditPalletOnDockCallout" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ViewPalletLoadDataOnDockCallin" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

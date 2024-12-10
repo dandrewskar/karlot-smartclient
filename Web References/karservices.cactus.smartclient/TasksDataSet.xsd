@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:mstns="http://tempuri.org/TasksDataSet.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="http://tempuri.org/TasksDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/TasksDataSet.xsd" id="TasksDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="TasksDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Tasks">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:ReadOnly="true" msdata:AutoIncrement="true" name="TaskID" type="xs:int" />
+              <xs:element name="Type">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaskDetails">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PriorityLevel" type="xs:int" />
+              <xs:element name="AssignedUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Assigned" type="xs:boolean" />
+              <xs:element name="TrailerRelated" type="xs:boolean" />
+              <xs:element name="AddedBy">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AddedTime" type="xs:dateTime" />
+              <xs:element name="CompletedTime" type="xs:dateTime" />
+              <xs:element name="Completed" type="xs:boolean" />
+              <xs:element name="Carrier">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element default="&quot;&quot;" name="PalletType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ScheduledDateTime" type="xs:dateTime" />
+              <xs:element name="TrailerSystemID" type="xs:int" />
+              <xs:element name="TaskCancelled" type="xs:boolean" />
+              <xs:element name="CancelledBy">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WhenCancelled" type="xs:dateTime" />
+              <xs:element default="&quot;&quot;" name="NotifyEmail">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TrailerID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TaskDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:ReadOnly="true" msdata:AutoIncrement="true" name="TaskDetailID" type="xs:int" />
+              <xs:element name="TaskID" type="xs:int" />
+              <xs:element name="AddedTime" type="xs:dateTime" />
+              <xs:element name="AddedBy">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="Constraint1">
+      <xs:selector xpath=".//mstns:Tasks" />
+      <xs:field xpath="mstns:TaskID" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="TaskDetail_Constraint1">
+      <xs:selector xpath=".//mstns:TaskDetail" />
+      <xs:field xpath="mstns:TaskDetailID" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Tasks_TaskDetail" msdata:parent="Tasks" msdata:child="TaskDetail" msdata:parentkey="TaskID" msdata:childkey="TaskID" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

@@ -1,0 +1,887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://karservices.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://karservices.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://karservices.com/">
+      <s:element name="ServiceTest">
+        <s:complexType />
+      </s:element>
+      <s:element name="ServiceTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ServiceTestResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BarcodeLookup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarcodeScan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BarcodeLookupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarcodeLookupResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NewCarrier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScacString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NameString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewCarrierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewCarrierResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewBarcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewBarcodeDataString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewScacString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewTrailerString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewBarcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewBarcodeResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBarcodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScacString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteBarcodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteBarcodesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewInboundTrailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoadStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Classification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MoveStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerTemp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CleanState" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastAction" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastUser" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TrailerAddedTime" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerAddedBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pBuyers" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NewInboundTrailerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NewInboundTrailerResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailerDataset">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActiveTrailerDatasetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailerDatasetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfTrailerActive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIfTrailerActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckIfTrailerActiveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarrierListByPartialSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartialNameString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarrierListByPartialSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarrierListByPartialSearchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckOutTrailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckOutTrailerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckOutTrailerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCactusInboundSheet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SheetData" type="tns:CactusInboundSheet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CactusInboundSheet">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ActionDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CabNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SONumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReferWillRun" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReferFuelLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hooks" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pallets" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Empty" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherComponents" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerInteriorCondition" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Trash" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LandGear" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoorHinges" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SpareTire" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoorLatches" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitOperation" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitCondition" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverSignature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecuritySignature" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AirChute" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rails" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SealNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Buyers" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="BarCodeData" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddCactusInboundSheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCactusInboundSheetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCactusOutboundSheet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SheetData" type="tns:CactusOutboundSheet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CactusOutboundSheet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecuritySignature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SetPointTemp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReferFuelLevel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SealNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OfficerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliverDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TruckNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddCactusOutboundSheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCactusOutboundSheetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersByScac">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersByScacResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailersByScacResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAllBarcodeData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BarcodeData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Original_BarcodeData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAllBarcodeDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateAllBarcodeDataResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlagQuestions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFlagQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlagQuestionsResult" type="tns:ArrayOfInboundQuestions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInboundQuestions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InboundQuestions" nillable="true" type="tns:InboundQuestions" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InboundQuestions">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActiveQuestion" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiredField" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FieldValues" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTextQuestions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTextQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTextQuestionsResult" type="tns:ArrayOfInboundQuestions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultiQuestions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMultiQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultiQuestionsResult" type="tns:ArrayOfInboundQuestions" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveInboundAnswers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pAnswer" type="tns:InboundAnswers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InboundAnswers">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AnswerID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrailerSystemID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Carrier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckInDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveInboundAnswersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveInboundAnswersResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ServiceTestSoapIn">
+    <wsdl:part name="parameters" element="tns:ServiceTest" />
+  </wsdl:message>
+  <wsdl:message name="ServiceTestSoapOut">
+    <wsdl:part name="parameters" element="tns:ServiceTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="BarcodeLookupSoapIn">
+    <wsdl:part name="parameters" element="tns:BarcodeLookup" />
+  </wsdl:message>
+  <wsdl:message name="BarcodeLookupSoapOut">
+    <wsdl:part name="parameters" element="tns:BarcodeLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewCarrierSoapIn">
+    <wsdl:part name="parameters" element="tns:NewCarrier" />
+  </wsdl:message>
+  <wsdl:message name="NewCarrierSoapOut">
+    <wsdl:part name="parameters" element="tns:NewCarrierResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewBarcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:NewBarcode" />
+  </wsdl:message>
+  <wsdl:message name="NewBarcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:NewBarcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBarcodesSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteBarcodes" />
+  </wsdl:message>
+  <wsdl:message name="DeleteBarcodesSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteBarcodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="NewInboundTrailerSoapIn">
+    <wsdl:part name="parameters" element="tns:NewInboundTrailer" />
+  </wsdl:message>
+  <wsdl:message name="NewInboundTrailerSoapOut">
+    <wsdl:part name="parameters" element="tns:NewInboundTrailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerDatasetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerDataset" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerDatasetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerDatasetResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfTrailerActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIfTrailerActive" />
+  </wsdl:message>
+  <wsdl:message name="CheckIfTrailerActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIfTrailerActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarrierListByPartialSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarrierListByPartialSearch" />
+  </wsdl:message>
+  <wsdl:message name="GetCarrierListByPartialSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarrierListByPartialSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckOutTrailerSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckOutTrailer" />
+  </wsdl:message>
+  <wsdl:message name="CheckOutTrailerSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckOutTrailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCactusInboundSheetSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCactusInboundSheet" />
+  </wsdl:message>
+  <wsdl:message name="AddCactusInboundSheetSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCactusInboundSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCactusOutboundSheetSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCactusOutboundSheet" />
+  </wsdl:message>
+  <wsdl:message name="AddCactusOutboundSheetSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCactusOutboundSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByScacSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByScac" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByScacSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByScacResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAllBarcodeDataSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAllBarcodeData" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAllBarcodeDataSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAllBarcodeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFlagQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlagQuestions" />
+  </wsdl:message>
+  <wsdl:message name="GetFlagQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlagQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTextQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTextQuestions" />
+  </wsdl:message>
+  <wsdl:message name="GetTextQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTextQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultiQuestions" />
+  </wsdl:message>
+  <wsdl:message name="GetMultiQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultiQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveInboundAnswersSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveInboundAnswers" />
+  </wsdl:message>
+  <wsdl:message name="SaveInboundAnswersSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveInboundAnswersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="ServiceTest">
+      <wsdl:input message="tns:ServiceTestSoapIn" />
+      <wsdl:output message="tns:ServiceTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BarcodeLookup">
+      <wsdl:input message="tns:BarcodeLookupSoapIn" />
+      <wsdl:output message="tns:BarcodeLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewCarrier">
+      <wsdl:input message="tns:NewCarrierSoapIn" />
+      <wsdl:output message="tns:NewCarrierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewBarcode">
+      <wsdl:input message="tns:NewBarcodeSoapIn" />
+      <wsdl:output message="tns:NewBarcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBarcodes">
+      <wsdl:input message="tns:DeleteBarcodesSoapIn" />
+      <wsdl:output message="tns:DeleteBarcodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NewInboundTrailer">
+      <wsdl:input message="tns:NewInboundTrailerSoapIn" />
+      <wsdl:output message="tns:NewInboundTrailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerDataset">
+      <wsdl:input message="tns:GetActiveTrailerDatasetSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailerDatasetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfTrailerActive">
+      <wsdl:input message="tns:CheckIfTrailerActiveSoapIn" />
+      <wsdl:output message="tns:CheckIfTrailerActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarrierListByPartialSearch">
+      <wsdl:input message="tns:GetCarrierListByPartialSearchSoapIn" />
+      <wsdl:output message="tns:GetCarrierListByPartialSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTrailer">
+      <wsdl:input message="tns:CheckOutTrailerSoapIn" />
+      <wsdl:output message="tns:CheckOutTrailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCactusInboundSheet">
+      <wsdl:input message="tns:AddCactusInboundSheetSoapIn" />
+      <wsdl:output message="tns:AddCactusInboundSheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCactusOutboundSheet">
+      <wsdl:input message="tns:AddCactusOutboundSheetSoapIn" />
+      <wsdl:output message="tns:AddCactusOutboundSheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByScac">
+      <wsdl:input message="tns:GetActiveTrailersByScacSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailersByScacSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllBarcodeData">
+      <wsdl:input message="tns:UpdateAllBarcodeDataSoapIn" />
+      <wsdl:output message="tns:UpdateAllBarcodeDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlagQuestions">
+      <wsdl:input message="tns:GetFlagQuestionsSoapIn" />
+      <wsdl:output message="tns:GetFlagQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTextQuestions">
+      <wsdl:input message="tns:GetTextQuestionsSoapIn" />
+      <wsdl:output message="tns:GetTextQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiQuestions">
+      <wsdl:input message="tns:GetMultiQuestionsSoapIn" />
+      <wsdl:output message="tns:GetMultiQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboundAnswers">
+      <wsdl:input message="tns:SaveInboundAnswersSoapIn" />
+      <wsdl:output message="tns:SaveInboundAnswersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ServiceTest">
+      <soap:operation soapAction="http://karservices.com/ServiceTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarcodeLookup">
+      <soap:operation soapAction="http://karservices.com/BarcodeLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCarrier">
+      <soap:operation soapAction="http://karservices.com/NewCarrier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewBarcode">
+      <soap:operation soapAction="http://karservices.com/NewBarcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBarcodes">
+      <soap:operation soapAction="http://karservices.com/DeleteBarcodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewInboundTrailer">
+      <soap:operation soapAction="http://karservices.com/NewInboundTrailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerDataset">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailerDataset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfTrailerActive">
+      <soap:operation soapAction="http://karservices.com/CheckIfTrailerActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarrierListByPartialSearch">
+      <soap:operation soapAction="http://karservices.com/GetCarrierListByPartialSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTrailer">
+      <soap:operation soapAction="http://karservices.com/CheckOutTrailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCactusInboundSheet">
+      <soap:operation soapAction="http://karservices.com/AddCactusInboundSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCactusOutboundSheet">
+      <soap:operation soapAction="http://karservices.com/AddCactusOutboundSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByScac">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailersByScac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllBarcodeData">
+      <soap:operation soapAction="http://karservices.com/UpdateAllBarcodeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlagQuestions">
+      <soap:operation soapAction="http://karservices.com/GetFlagQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTextQuestions">
+      <soap:operation soapAction="http://karservices.com/GetTextQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiQuestions">
+      <soap:operation soapAction="http://karservices.com/GetMultiQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboundAnswers">
+      <soap:operation soapAction="http://karservices.com/SaveInboundAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ServiceTest">
+      <soap12:operation soapAction="http://karservices.com/ServiceTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BarcodeLookup">
+      <soap12:operation soapAction="http://karservices.com/BarcodeLookup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCarrier">
+      <soap12:operation soapAction="http://karservices.com/NewCarrier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewBarcode">
+      <soap12:operation soapAction="http://karservices.com/NewBarcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBarcodes">
+      <soap12:operation soapAction="http://karservices.com/DeleteBarcodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewInboundTrailer">
+      <soap12:operation soapAction="http://karservices.com/NewInboundTrailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerDataset">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailerDataset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfTrailerActive">
+      <soap12:operation soapAction="http://karservices.com/CheckIfTrailerActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarrierListByPartialSearch">
+      <soap12:operation soapAction="http://karservices.com/GetCarrierListByPartialSearch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTrailer">
+      <soap12:operation soapAction="http://karservices.com/CheckOutTrailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCactusInboundSheet">
+      <soap12:operation soapAction="http://karservices.com/AddCactusInboundSheet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCactusOutboundSheet">
+      <soap12:operation soapAction="http://karservices.com/AddCactusOutboundSheet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByScac">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailersByScac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAllBarcodeData">
+      <soap12:operation soapAction="http://karservices.com/UpdateAllBarcodeData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlagQuestions">
+      <soap12:operation soapAction="http://karservices.com/GetFlagQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTextQuestions">
+      <soap12:operation soapAction="http://karservices.com/GetTextQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultiQuestions">
+      <soap12:operation soapAction="http://karservices.com/GetMultiQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInboundAnswers">
+      <soap12:operation soapAction="http://karservices.com/SaveInboundAnswers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://guymon-ok.karservices.com/Webservice/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://guymon-ok.karservices.com/Webservice/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

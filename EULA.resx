@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TextBox1.Text" xml:space="preserve">
+    <value>AMERICAN RADIO CORPORATION
+End-User License Agreement
+Product Name: KAR LOT
+
+IMPORTANT--PLEASE READ CAREFULLY.  This End-User License Agreement (the "EULA") is a legal agreement between American Radio Corporation, a Texas corporation (“dba KAR Services”) and you (the "Customer"), the original consumer purchaser of the American Radio Corporation software product identified above, which product includes computer software and the associated audiovisual works, and may include printed materials, and electronic or "online" documentation and/or related media (collectively, the "Software Product").  By installing and/or otherwise using the Software Product, you agree to be bound by the terms and conditions of this EULA.  If you do not agree to all of the provisions of this EULA, do not install or otherwise use the Software Product. 
+
+1.	LICENSE GRANT.  American Radio Corporation hereby grants Customer a non-exclusive license to use the Software Product solely in accordance with the terms and subject to the conditions of this EULA.  The Software Product incorporates various intellectual property rights, that may, include, without limitation, copyrights, trademarks, patents, trade secrets and other proprietary rights (collectively, the "Intellectual Property Rights").  While Customer owns the physical media (if any) on which the Software Product is distributed, American Radio Corporation retains all rights, title and interests in and to the computer software and other materials comprising the Software Product and all Intellectual Property Rights relating thereto.
+
+2.	RIGHTS AND RESTRICTIONS.  The Software Product is protected by U.S. and foreign copyright laws and international copyright treaties, as well as by other such intellectual property laws and treaties.  The Software Product is licensed (and not sold) to Customer, and any and all rights not expressly granted to Customer herein are reserved by American Radio Corporation. 
+
+	Installation.  Customer may install and use one copy of the Software Product on his/her personal computer. Except as expressly set forth in the user manual for this American Radio Corporation Software Product. The installed copies of the Software Product that Customer is entitled to create hereunder may not be shared or otherwise used simultaneously on more than one computer unless Customer has acquired a Site License from American Radio Corporation.
+
+	Reverse Engineering.  Customer shall not adapt or otherwise modify, create any derivative work, or decompile, disassemble, reverse engineer, or otherwise attempt to derive any source code from, the Software Product (or any portion thereof) except and only to the extent that, notwithstanding such limitation, said activity is expressly permitted by applicable law.
+
+	Rental.  Customer does not have the right to publicly perform, rent, lease, loan, or sublicense the Software Product, or to otherwise provide any third party with access to and the opportunity to use the Software Product.
+
+	Support Services.  American Radio Corporation may provide Customer with support services relating to the Software Product (collectively, "Support Services").  Customer's use of any such Support Services shall be subject to American Radio Corporation's applicable policies and programs described in the end-user manual for the Software Product, in "online" documentation (if any), and in other such materials published by American Radio Corporation.  Any supplemental computer software (if any) provided by American Radio Corporation as part of its Support Services shall be considered part of the Software Product for all intents and purposes and shall be governed by the provisions of this EULA.  Any information that you disclose or provide in connection with the Support Services may be used by American Radio Corporation for its business purposes, including, but not limited to, product development and support.
+
+	Upgrades.  American Radio Corporation may from time to time, at its sole discretion, make an upgrade or other such revised version of the Software Product (an "Upgrade") available and notify Customer of the applicable terms and conditions for receiving any such Upgrade, which may require Customer to return certain components of the Software Product prior to receiving the subject Upgrade.
+
+	Component Parts.  The Software Product is licensed for use as a single product, and the component parts of the Software Product may not be separated for use in any other application(s) or for use on more than one computer (except as otherwise expressly authorized by American Radio Corporation in writing).
+
+	Transfer of Software Product.  Customer may not transfer his/her rights under this EULA. Customer's may not transfer any Upgrade of all prior versions of the Software Product licensed to Customer hereunder.
+
+3.	LIMITED WARRANTY.  American Radio Corporation warrants that the media on which the Software Product is recorded will be free from defects in materials and workmanship for a period of ninety (90) days after the date of the original Customer's purchase thereof.  American Radio Corporation's sole liability and obligation with respect to any breach of this limited express warranty is, at American Radio Corporation's sole option, to (i) repair or replace any such defective media, or (ii) refund the purchase price (if any) paid by Customer for the Software Product, provided Customer returns such media to American Radio Corporation (together with a copy of Customer's dated receipt regarding his/her purchase of such product) within one (1) week after the expiration of the applicable warranty period and provided that American Radio Corporation can confirm the existence of the defective condition alleged by Customer.  Customer shall be responsible for the costs of freight and insurance in returning any defective media to American Radio Corporation, and American Radio Corporation shall be responsible for the costs of shipping the repaired or replaced media back to Customer.
+
+  The foregoing limited warranty shall be inapplicable to any media that has been modified or subjected to accident, abuse, or unusual physical or electrical stress, or to any problem with the media that is unrelated to any defect in materials or workmanship.  Any repaired or replacement media will be warranted for the remainder of the original warranty period or for thirty (30) days, whichever is greater.  The limited express warranty set forth herein gives Customer certain legal rights, and Customer may also have certain other rights which vary from state to state and/or from jurisdiction to jurisdiction.
+
+4.	NO OTHER WARRANTIES.  EXCEPT AS EXPRESSLY PROVIDED IN SECTION 3, ABOVE, THE SOFTWARE PRODUCT AND ANY UPGRADE THERETO IS/ARE PROVIDED TO CUSTOMER ON AN "AS IS" BASIS, WITHOUT WARRANTY OF ANY KIND OR NATURE. AMERICAN RADIO CORPORATION AND ITS SUPPLIERS MAKE, AND CUSTOMER RECEIVES, NO WARRANTIES OR CONDITIONS, EXPRESS, IMPLIED OR STATUTORY, INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR ANY PARTICULAR PURPOSE, OR NON-
+INFRINGEMENT OF ANY THIRD-PARTY RIGHTS, AND THEIR EQUIVALENTS UNDER THE LAWS OF ANY JURISDICTION, REGARDING THE SOFTWARE PRODUCT AND/OR ANY UPGRADE THERETO.
+
+5.	LIMITATION OF LIABILITY.  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, AMERICAN RADIO CORPORATION SHALL NOT BE LIABLE TO CUSTOMER OR ANY THIRD PARTY FOR ANY INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE OR OTHER DAMAGES OF ANY KIND OR NATURE ARISING OUT OF THE USE OF OR INABILITY TO USE THE SOFTWARE PRODUCT AND/OR ANY UPGRADE THERETO, EVEN IF American Radio Corporation HAS BEEN ADVISED OF THE POSSIBILITY OF ANY SUCH DAMAGES, AND CUSTOMER HEREBY ASSUMES ALL RISKS AS TO THE QUALITY, PERFORMANCE, OPERATION OF AND/OR INABILITY TO OPERATE THE SOFTWARE PRODUCT AND/OR ANY UPGRADE THERETO.  IN NO EVENT SHALL American Radio Corporation'S LIABILITY HEREUNDER EXCEED THE PRICE WHICH CUSTOMER PAID FOR THE ITEM(S) WHICH IS/ARE THE SUBJECT OF ANY CLAIMED LIABILITY.  Some states do not allow the exclusion or limitation of incidental or consequential damages or of implied warranties, so certain of the foregoing provisions may not apply to Customer.
+
+6.	U.S. GOVERNMENT RESTRICTED RIGHTS.  The Software Product and all Upgrades (if any) thereto are provided with restricted rights.  Use, duplication, or disclosure by the U.S. Government is subject to restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 252.227-7013 or subparagraphs (c)(1) and (2) of the Commercial Computer Software-Restricted Rights at 48 CFR 52.227-19, as applicable.  "Manufacturer", as such term is used therein, is American Radio Corporation, 4555 Jennie Barker Rd, Garden City, Kansas, 67846, U.S.A.
+
+7.	EXPORT LIABILITY ASSURANCES.  Customer acknowledges and agrees that the Software Product will not be exported outside the United States except as authorized and permitted by the laws and regulations of the United States.  If the Software product has been rightfully obtained by Customer outside the United States, Customer agrees that he/she will not re-export the Software Product except as permitted by the laws and regulations of the United States and the laws and regulations of the jurisdiction in which Customer obtained the Software Product.
+
+8.	TERMINATION.  Without prejudice to any of American Radio Corporation's other rights and remedies under applicable law, American Radio Corporation may, at its sole discretion, terminate this EULA if Customer fails to comply with any of the terms or conditions of this EULA.  In the event this EULA is terminated, Customer must promptly destroy all copies of the Software Product (including all components thereof) and of each Upgrade thereto.
+
+9.	GOVERNING LAW.  This EULA shall be governed by and construed under the laws of the State of Texas, excluding that body of law related to choice of laws, and of the United States of America.
+
+10.	USER REGISTRATION AND COMMUNICATION:  American Radio Corporation reserves the right to gather end user registration, software usage, software version, hardware and Internet service provider information by means of registration as well as via the Internet client-server module included in the installation. This information will be used to notify customers and make decisions about technical support, product issues, upgrade notifications, and relevant marketing information.  Notification to customers may be communicated to customers through aforementioned Internet client-server module included in the installation of the American Radio Corporation product. American Radio Corporation may also make registration information available to third parties from time to time. American Radio Corporation will not use customer name or other consumer information except as permitted by applicable law. 
+ 
+11.	Entire Agreement.  This EULA constitutes the entire agreement and understanding of the parties regarding Customer's possession and use of the Software Product and the related subject matter hereof, and supersedes the provisions of any earlier end-user license agreement(s) applicable to any programs that constitute part of the Software Product.  The headings of the Sections and subsections of this EULA are for convenience of reference only and shall not be of any effect in construing the meanings of any Section or provision hereof.  If any provision of this EULA (or part thereof) is determined by any court of competent jurisdiction to be void, invalid or otherwise unenforceable, such provision (or part thereof) shall be deemed deleted from this EULA, while the remaining provisions of this EULA shall continue in full force and effect.  No failure or delay by either party in exercising any right, power or remedy under this EULA shall operate as a waiver of any such right, power or remedy.
+
+BY CLICKING THE "I Agree" BUTTON WHICH APPEARS ON THE LOGIN SCREEN, YOU, THE CUSTOMER, ARE PROVIDING A SYMBOL OF YOUR LEGAL SIGNATURE AND ACKNOWLEDGING AND ACCEPTING ALL OF THE PROVISIONS OF THIS EULA. IF YOU ARE UNDER THE AGE OF EIGHTEEN (18), PLEASE HAVE A PARENT OR GUARDIAN READ THIS ENTIRE EULA PRIOR TO INSTALLING AND/OR OTHERWISE USING THE SOFTWARE PRODUCT.
+
+</value>
+  </data>
+</root>

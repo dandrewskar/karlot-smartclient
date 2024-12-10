@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35017.193
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA91FF5F-C054-4723-A944-2318399F6B2C}"
+	ProjectSection(SolutionItems) = preProject
+		KAR Lot SmartClient.vsmdi = KAR Lot SmartClient.vsmdi
+		KAR Lot SmartClient1.vsmdi = KAR Lot SmartClient1.vsmdi
+		KAR Lot SmartClient2.vsmdi = KAR Lot SmartClient2.vsmdi
+		KAR Lot SmartClient3.vsmdi = KAR Lot SmartClient3.vsmdi
+		LocalTestRun.testrunconfig = LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KAR Lot SmartClient", "KAR Lot SmartClient.vbproj", "{6072BF1F-07CB-4FE9-80F9-B836EFD85357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlDispatchServices", "..\KlDispatchServices\KlDispatchServices.csproj", "{344A1102-20AA-4F70-86D7-AC7A01334A9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlDispatchServicesTests", "..\KlDispatchServicesTests\KlDispatchServicesTests.csproj", "{B96EA70B-EED2-4540-8B61-ADF84DFE18C8}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KarDoor", "..\KarDoor\KarDoor.vbproj", "{F55C3A67-F5B4-4AD9-93A1-BA37410AB12C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KarLotTrailer", "..\KarLotTrailer\KarLotTrailer.vbproj", "{2F0D064A-B7F8-4FAC-BC6E-74F3107438CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6072BF1F-07CB-4FE9-80F9-B836EFD85357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6072BF1F-07CB-4FE9-80F9-B836EFD85357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6072BF1F-07CB-4FE9-80F9-B836EFD85357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6072BF1F-07CB-4FE9-80F9-B836EFD85357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{344A1102-20AA-4F70-86D7-AC7A01334A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{344A1102-20AA-4F70-86D7-AC7A01334A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{344A1102-20AA-4F70-86D7-AC7A01334A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{344A1102-20AA-4F70-86D7-AC7A01334A9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96EA70B-EED2-4540-8B61-ADF84DFE18C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96EA70B-EED2-4540-8B61-ADF84DFE18C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96EA70B-EED2-4540-8B61-ADF84DFE18C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96EA70B-EED2-4540-8B61-ADF84DFE18C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F55C3A67-F5B4-4AD9-93A1-BA37410AB12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55C3A67-F5B4-4AD9-93A1-BA37410AB12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55C3A67-F5B4-4AD9-93A1-BA37410AB12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55C3A67-F5B4-4AD9-93A1-BA37410AB12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0D064A-B7F8-4FAC-BC6E-74F3107438CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0D064A-B7F8-4FAC-BC6E-74F3107438CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0D064A-B7F8-4FAC-BC6E-74F3107438CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0D064A-B7F8-4FAC-BC6E-74F3107438CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1296AF27-0264-4739-9612-C496755E20A7}
+	EndGlobalSection
+EndGlobal

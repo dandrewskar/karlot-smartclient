@@ -1,0 +1,332 @@
+write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "Starting RMM.DeviceInventory Import" -eventid 100
+
+$server = 'icul-sql01'
+$database = 'Warehouse'
+$username = 'svc-api'
+$password = 'DatasMyG@m3'
+
+$filePath = '\\icul-fil001\TSUPPORT\RMM Report' #'\\icul-fil001\TSUPPORT\RMM Report'
+$fileName = '2023-07-06-RMMDeviceInventoryReport1.csv'
+
+$files = get-childitem "$filePath\$fileName"
+
+if($files.length -eq 0){
+	'No files found.'
+	write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "RMM.DeviceInventory Import - No files found" -eventid 101
+	return
+}
+
+$date = get-date
+
+write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "RMM.DeviceInventory Import - Files found $files" -eventid 101
+
+$fileName = $files.Name
+
+$deviceinventories = Import-Csv -path "$filePath\$fileName"
+
+$query = "SELECT [OS]
+      ,[Type]
+      ,[Client]
+      ,[Site]
+      ,[Device]
+      ,[Description]
+      ,[InstallDate]
+      ,[AgentVersion]
+      ,[DSCRunTime]
+      ,[Frequency]
+      ,[Reboot]
+      ,[MaintenanceMode]
+      ,[AutomatedTasks]
+      ,[BandwidthMonitoringCheck_PerformanceMonitoringCheck]
+      ,[DiskSpaceCheck_FileSizeCheck_FileSystemSpaceCheck]
+      ,[LinuxDaemonCheck_OSXDaemonCheck_ProcessCheck_WindowsServiceCheck]
+      ,[PINGCheck]
+      ,[ScriptCheck]
+      ,[SNMPCheck]
+      ,[TCPServiceCheck]
+      ,[WebPageCheck]
+      ,[AntivirusUpdateCheck_ManagedAntivirusCheck]
+      ,[EventLogCheck_LogFileCheck_CriticalEventsCheck]
+      ,[BackupCheck]
+      ,[DriveSpaceChangeCheck_FileSystemSpaceChangeCheck]
+      ,[ExchangeStoreSizeCheck_MTAQueueCheck]
+      ,[FailedLoginCheck]
+      ,[ManagedOnlineBackupSelectedSizeCheck]
+      ,[MySQLCheck]
+      ,[OSXUpdateCheck_PackageManagerCheck_PatchStatusCheck_WSUSCheck]
+      ,[PhysicalDiskHealthCheck_PhysicalMemoryHealthCheck]
+      ,[WebProtectionBandwidthCheck]
+      ,[NetPathCheck]
+      ,[DiskEncryptionManagerServiceCheck_Bitdefender]
+      ,[PatchManagement]
+      ,[TeamViewer]
+      ,[TakeControl_TeamViewer]
+      ,[TakeControl_Nable]
+      ,[RemoteBackground]
+      ,[Backup]
+      ,[ManagedAntivirus]
+      ,[WebProtection]
+      ,[NetPath]
+      ,[SystemTrayApplication]
+      ,[DiskEncryptionManager]
+      ,[PSA]
+      ,[SiteConcentrator]
+      ,[DateCreated]
+      ,[DateUpdated]
+  FROM [RMM].[DeviceInventory]"
+  
+  $existingDeviceInventories = Invoke-SqlCmd -database $database -ServerInstance $server -Username $username -Password $password -Query $query
+
+foreach($deviceinventory in $deviceinventories){
+
+    $device = $deviceinventory.'Device'
+	$o = $existingDeviceInventories| where-object {$_.Device -eq $device}
+	
+	$os = $deviceinventory.'OS'
+	$type = $deviceinventory.'Type'
+	$client = $deviceinventory.'Client'
+	$site = $deviceinventory.'Site'
+	$device = $deviceinventory.'Device'
+	$description = $deviceinventory.'Description'
+	$installdate = $deviceinventory.'Install Date'
+	$dateversion = $deviceinventory.'Date Version'
+	$dscruntime = $deviceinventory.'DSC Run Time'	
+	$24x7freqency = $deviceinventory.'24x7 Frequency'
+	$reboot = $deviceinventory.'Reboot'
+	$maintenancemode = $deviceinventory.'Maintenance Mode'
+	$automatedtasks = $deviceinventory.'Automated Tasks'
+	$bandwidthmonitor = $deviceinventory.'Bandwidth Monitoring Check / Performance Monitoring Check'
+	$diskspacecheck = 'Disk Space Check / File Size Check / File System Space Check'
+	$linuxdaemon = $deviceinventory.'Linux Daemon Check / OSX Daemon Check / Process Check / Windows Service Check',
+	$pincheck = 'PING Check',
+	$scriptcheck = 'Script Check'
+	$snmpcheck = $deviceinventory.'SNMP Check'
+	$tcpservicecheck = $deviceinventory.'TCP Service Check'
+	$webpagecheck = $deviceinventory.'Web Page Check'
+	$antivirusupdate = $deviceinventory.'Antivirus Update Check / Managed Antivirus Check'
+	$eventlogcheck = 'Event Log Check / Log File Check / Critical Events Check'
+	$backupcheck = $deviceinventory.'Backup Check'
+	$drivespacechange = $deviceinventory.'Drive Space Change Check / File System Space Change Check'
+	$exhangestoresize = 'Exchange Store Size Check / MTA Queue Check'
+	$failedlogincheck = 'Failed Login Check'
+	$managedonlinebackup = $deviceinventory.'Managed Online Backup Selected Size Check'
+	$mysqlcheck = $deviceinventory.'MySQL Check'
+	$osxupdatecheck = $deviceinventory.'OSX Update Check / Package Manager Check / Patch Status Check / WSUS Check'
+	$physicaldiskhealth = $deviceinventory.'Physical Disk Health Check / Physical Memory Health Check'
+	$webprotection = $deviceinventory.'Web Protection Bandwidth Check'
+	$netpathcheck = $deviceinventory.'NetPath Check'
+	$diskencryptionmanager = $deviceinventory.'Disk Encryption Manager Service Check (Bitdefender)'
+	$patchmanagement = $deviceinventory.'Patch Management'
+	$teamviewer = $deviceinventory.'TeamViewer'
+	$takecontrolteamview = $deviceinventory.'Take Control (TeamViewer)'
+	$takecontrolnable = $deviceinventory.'Take Control (N-able)'
+	$remotebackground = $deviceinventory.'Remote Background'
+	$backup = $deviceinventory.'Backup'
+	$managedantivirus = $deviceinventory.'Managed Antivirus'
+	$webprotection = $deviceinventory.'Web Protection'	
+	$netpath = $deviceinventory.'NetPath'
+	$systemtrayapp = $deviceinventory.'System Tray Application'
+	$diskencryptionmanager = $deviceinventory.'Disk Encryption Manager'
+	$psa = $deviceinventory.'PSA'
+	$siteconcentrator = $deviceinventory.'Site Concentrator'
+
+	
+	if($o -eq $null ){
+	
+	  "insert $deviceinventory"
+	
+	    $query = "INSERT INTO [RMM].[DeviceInventory]
+           ([OS]
+           ,[Type]
+           ,[Client]
+           ,[Site]
+           ,[Device]
+           ,[Description]
+           ,[InstallDate]
+           ,[AgentVersion]
+           ,[DSCRunTime]
+           ,[Frequency]
+           ,[Reboot]
+           ,[MaintenanceMode]
+           ,[AutomatedTasks]
+           ,[BandwidthMonitoringCheck_PerformanceMonitoringCheck]
+           ,[DiskSpaceCheck_FileSizeCheck_FileSystemSpaceCheck]
+           ,[LinuxDaemonCheck_OSXDaemonCheck_ProcessCheck_WindowsServiceCheck]
+           ,[PINGCheck]
+           ,[ScriptCheck]
+           ,[SNMPCheck]
+           ,[TCPServiceCheck]
+           ,[WebPageCheck]
+           ,[AntivirusUpdateCheck_ManagedAntivirusCheck]
+           ,[EventLogCheck_LogFileCheck_CriticalEventsCheck]
+           ,[BackupCheck]
+           ,[DriveSpaceChangeCheck_FileSystemSpaceChangeCheck]
+           ,[ExchangeStoreSizeCheck_MTAQueueCheck]
+           ,[FailedLoginCheck]
+           ,[ManagedOnlineBackupSelectedSizeCheck]
+           ,[MySQLCheck]
+           ,[OSXUpdateCheck_PackageManagerCheck_PatchStatusCheck_WSUSCheck]
+           ,[PhysicalDiskHealthCheck_PhysicalMemoryHealthCheck]
+           ,[WebProtectionBandwidthCheck]
+           ,[NetPathCheck]
+           ,[DiskEncryptionManagerServiceCheck_Bitdefender]
+           ,[PatchManagement]
+           ,[TeamViewer]
+           ,[TakeControl_TeamViewer]
+           ,[TakeControl_Nable]
+           ,[RemoteBackground]
+           ,[Backup]
+           ,[ManagedAntivirus]
+           ,[WebProtection]
+           ,[NetPath]
+           ,[SystemTrayApplication]
+           ,[DiskEncryptionManager]
+           ,[PSA]
+           ,[SiteConcentrator]
+           ,[DateCreated])
+			values 
+			('$os',
+			 '$type',
+			 '$client',
+			 '$site',
+			 '$device',
+			 '$installdate',
+			 '$dateversion',
+			 '$dscruntime', 
+			 '$24x7freqency',
+			 '$reboot',
+			 '$maintenancemode',
+			 '$automatedtasks',
+			 '$bandwidthmonitor',
+			 '$diskspacecheck',
+			 '$linuxdaemon',
+			 '$pincheck',
+			 '$scriptcheck',
+			 '$snmpcheck',
+			 '$tcpservicecheck',	 
+			 '$webpagecheck',
+			 '$antivirusupdate',
+			 '$eventlogcheck',
+			 '$backupcheck',
+			 '$drivespacechange',
+			 '$exhangestoresize',
+			 '$failedlogincheck',
+			 '$managedonlinebackup',
+			 '$mysqlcheck',
+			 '$osxupdatecheck',
+			 '$physicaldiskhealth',	 
+			 '$webprotection',
+			 '$netpathcheck',
+	         '$diskencryptionmanager',
+	         '$patchmanagement', 
+	         '$teamviewer',
+			 '$takecontrolteamview',
+		     '$takecontrolnable',
+	         '$remotebackground',
+		     '$backup',
+			 '$managedantivirus',
+		     '$webprotection',
+	         '$netpath',
+	         '$systemtrayapp',
+	         '$diskencryptionmanager',
+	         '$psa',
+	         '$siteconcentrator',
+			 '$date'
+			 )"
+			 
+		write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "RMM.DeviceInventory Import - Created agentname $agentname" -eventid 101
+		#Invoke-SqlCmd -database 'Warehouse' -ServerInstance 'ICUL-SQL\SSRS' -Username 'svc-api' -Password 'DatasMyG@m3' -Query $query
+		#$query
+		
+		try{
+			Invoke-SqlCmd -database $database -ServerInstance $server -Username $username -Password $password -Query $query -ErrorAction `Stop`
+		} catch {
+			"error when running sql $query"
+			write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "RMM.DeviceInventory Import" + $error -eventid 101
+			Write-Host "Press any key to continue..."
+			$Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+		}
+	} else{
+		"update $deviceinventories"
+		
+		$query = "UPDATE [RMM].[DeviceInventory]
+   SET [OS] = '$os'	 
+      ,[Type] = '$type'
+      ,[Client] = '$client'
+      ,[Site] = '$site'
+      ,[Device] = '$device'
+      ,[Description] = '$description'
+      ,[InstallDate] = '$installdate'
+      ,[AgentVersion] = '$dateversion'
+      ,[DSCRunTime] = '$dscruntime'
+      ,[Frequency] = '$24x7freqency'
+      ,[Reboot] = '$reboot'
+      ,[MaintenanceMode] = '$maintenancemode'
+      ,[AutomatedTasks] = '$automatedtasks'
+      ,[BandwidthMonitoringCheck_PerformanceMonitoringCheck] = '$bandwidthmonitor'
+      ,[DiskSpaceCheck_FileSizeCheck_FileSystemSpaceCheck] = '$diskspacecheck'
+      ,[LinuxDaemonCheck_OSXDaemonCheck_ProcessCheck_WindowsServiceCheck] = '$linuxdaemon'
+      ,[PINGCheck] = '$pincheck'
+      ,[ScriptCheck] = '$scriptcheck'
+      ,[SNMPCheck] = '$snmpcheck'
+      ,[TCPServiceCheck] = '$tcpservicecheck'
+      ,[WebPageCheck] = '$webpagecheck'
+      ,[AntivirusUpdateCheck_ManagedAntivirusCheck] = '$antivirusupdate'
+      ,[EventLogCheck_LogFileCheck_CriticalEventsCheck] = '$eventlogcheck'
+      ,[BackupCheck] = '$backupcheck'
+      ,[DriveSpaceChangeCheck_FileSystemSpaceChangeCheck] = '$drivespacechange'
+      ,[ExchangeStoreSizeCheck_MTAQueueCheck] = '$exhangestoresize'
+      ,[FailedLoginCheck] = '$failedlogincheck'
+      ,[ManagedOnlineBackupSelectedSizeCheck] = '$managedonlinebackup'
+      ,[MySQLCheck] = '$mysqlcheck'
+      ,[OSXUpdateCheck_PackageManagerCheck_PatchStatusCheck_WSUSCheck] = '$osxupdatecheck'
+      ,[PhysicalDiskHealthCheck_PhysicalMemoryHealthCheck] = '$physicaldiskhealth'
+      ,[WebProtectionBandwidthCheck] = '$webprotection'
+      ,[NetPathCheck] = '$netpathcheck'
+      ,[DiskEncryptionManagerServiceCheck_Bitdefender] = '$diskencryptionmanager'
+      ,[PatchManagement] = '$patchmanagement'
+      ,[TeamViewer] = '$teamviewer'
+      ,[TakeControl_TeamViewer] = '$takecontrolteamview'
+      ,[TakeControl_Nable] = '$takecontrolnable'
+      ,[RemoteBackground] = '$remotebackground'
+      ,[Backup] = '$backup'
+      ,[ManagedAntivirus] = '$managedantivirus'
+      ,[WebProtection] = '$webprotection'
+      ,[NetPath] = '$netpath'
+      ,[SystemTrayApplication] = '$systemtrayapp'
+      ,[DiskEncryptionManager] = '$diskencryptionmanager'
+      ,[PSA] = '$psa'
+      ,[SiteConcentrator] = '$siteconcentrator'
+      ,[DateUpdated] = '$date'
+ WHERE Device = $device
+			
+			try{
+			Invoke-SqlCmd -database $database -ServerInstance $server -Username $username -Password $password -Query $query -ErrorAction `Stop`
+		} catch {
+			"error when running sql $query"
+			write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "RMM.DeviceInventory Import" + $error -eventid 101
+		}
+	   
+	}
+	
+   
+}
+
+if(!(test-path "$filePath\Archive")){
+    #make folder
+	write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "RMM.DeviceInventory Import - Creating folder $filePath\Archive" -eventid 101
+    New-Item -Path "$filePath\Archive" -ItemType Directory
+}
+#>
+
+#move file
+$moveDate = get-date -format "yyyyMMddHHmmss"
+move-item -path "$filePath\$fileName" -destination "$filePath\Archive\$moveDate-$fileName"
+
+write-eventlog -logname Application -source "ICUL Scripts" -entrytype Information -message "Completed RMM.DeviceInventory Import" -eventid 100
+
+
+
+
+
+	

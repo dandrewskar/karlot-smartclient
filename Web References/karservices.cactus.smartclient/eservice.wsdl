@@ -1,0 +1,3742 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://karservices.com/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://karservices.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://karservices.com/">
+      <s:import namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/YardCheckReferenceDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/YardCheckReview.xsd" />
+      <s:import namespace="http://tempuri.org/ActiveTrailerDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/TasksDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/TaskTextDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/UpdateTrailerDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/MovesDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=TaskTextDataSet" namespace="http://tempuri.org/TaskTextDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=TasksDataSet" namespace="http://tempuri.org/TasksDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=MovesDataSet" namespace="http://tempuri.org/MovesDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=ActiveTrailerDataSet" namespace="http://tempuri.org/ActiveTrailerDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=YardCheckReview" namespace="http://tempuri.org/YardCheckReview.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=UpdateTrailerDataSet" namespace="http://tempuri.org/UpdateTrailerDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=YardCheckReferenceDataSet" namespace="http://tempuri.org/YardCheckReferenceDataSet.xsd" />
+      <s:import schemaLocation="http://guymon-ok.karservices.com/Webservice/Eservice.asmx?schema=BarcodeDataSet" namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+      <s:element name="CallOutWashdockToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWashType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWashedBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tMoveID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Trailer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrailerOut" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerOutBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrailerOutTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerAddedBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrailerAddedTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CleanState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreCooling" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreCoolRequested" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Active" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Carrier" type="tns:Carrier" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SystemID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletsOnBoard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletsRequested" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastAction" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NextLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ThirdLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Load" type="tns:TrailerLoadClass" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoveStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhosMove" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MoveID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seal1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seal2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seal3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SealException" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalloutUserInitials" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferUnitMode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutOfService" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasException" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionCodeDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuelRoundCheck" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pallets" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SetPointCelsius" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Carrier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrailerLoadClass">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoadStatusMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TypeLoadStatus" type="tns:LoadStatusType" />
+          <s:element minOccurs="0" maxOccurs="1" name="dbCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LoadStatusType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="CompleteLoad" />
+          <s:enumeration value="PartialLoad" />
+          <s:enumeration value="EmptyClean" />
+          <s:enumeration value="EmptyDirty" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CallOutWashdockToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallOutWashdockToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTrailerToWashDock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWashBay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTrailerToWashDockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddTrailerToWashDockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallOutWashDockNoMove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWashedBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWashType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallOutWashDockNoMoveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallOutWashDockNoMoveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallToWashDock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Trailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WashBayLoc" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallToWashDockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallToWashDockResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearTrailerException">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="trailerSystemId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearTrailerExceptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClearTrailerExceptionResult" type="tns:WsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WsResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApiHasException" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetKarData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetKarDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetKarDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundSheet">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetInboundSheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundSheetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCarrierList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCarrierListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCarrierListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailerRowByBarcode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailerRowByBarcodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailerRowByBarcodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTrailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DS">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTrailerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateTrailerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrailerDataBySystemID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SystemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrailerDataBySystemIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrailerDataBySystemIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrailer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SystemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrailerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrailerResult" type="tns:Trailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundSheetRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LastID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundSheetRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundSheetRecordsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutboundSheetRecords">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LastID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutboundSheetRecordsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOutboundSheetRecordsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarkForYardCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MarkForYardCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MarkForYardCheckResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetYardCheck">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResetYardCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ResetYardCheckResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailerCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActiveTrailerCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetActiveTrailerCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActiveTrailersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessYardCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerData">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BarcodeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckedBy" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessYardCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProcessYardCheckResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYardCheckRefData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetYardCheckRefDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYardCheckRefDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/YardCheckReferenceDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYardCheckReview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YardCheckID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetYardCheckReviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetYardCheckReviewResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/YardCheckReview.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UseRack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UseRackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UseRackResult" type="tns:KarLotUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="KarLotUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserViewMode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserAuthenticated" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActiveCarriers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActiveCarriersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveCarriersResult" type="tns:ArrayOfCarrier" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCarrier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Carrier" nillable="true" type="tns:Carrier" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActiveTrailersByScac">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Scac" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersByScacResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailersByScacResult" type="tns:ArrayOfTrailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTrailer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Trailer" nillable="true" type="tns:Trailer" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetActiveTrailersByTrailerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersByTrailerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailersByTrailerIDResult" type="tns:ArrayOfTrailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersDataset">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActiveTrailersDatasetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailersDatasetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ActiveTrailerDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersByLoadStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pLoadStatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailersByLoadStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailersByLoadStatusResult" type="tns:ArrayOfTrailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrailerOutOfService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pTrailerSystemId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNotes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrailerOutOfServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetTrailerOutOfServiceResult" type="tns:Trailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrailerInService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pTrailerSystemId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNotes" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrailerInServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetTrailerInServiceResult" type="tns:Trailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoves">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMovesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMovesResult" type="tns:ArrayOfTrailerMoveTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTrailerMoveTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrailerMoveTO" nillable="true" type="tns:TrailerMoveTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrailerMoveTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MoveID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Carrier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StartLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StopOffLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoveStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Temperature" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletsOnBoard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletsRequested" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreCooling" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreCoolingStarted" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastAction" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastUser" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeCalled" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalledBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeTaken" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TakenBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimePickedUp" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PickedUpBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeParked" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParkedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhosMove" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MoveInstructions" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActiveMove" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrailerSystemID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cancelled" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelledBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Completed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeCancelled" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProblemReported" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TimeProblemReported" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProblemReportedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProblemType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StationCalling" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriorityMove" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seal1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seal2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seal3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SealedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferUnitMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CalloutUserInitials" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasException" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExceptionCodeDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TaggedEmptyClean" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SetPointCelsius" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TakeMoveCalledToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TakeMoveCalledToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledFromWashDock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledFromWashDockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TakeMoveCalledFromWashDockResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledOutDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledOutDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TakeMoveCalledOutDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledDoorToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TakeMoveCalledDoorToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TakeMoveCalledDoorToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromDoorToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromDoorToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PickupFromDoorToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromLotToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromLotToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PickupFromLotToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromWashDockToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromWashDockToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PickupFromWashDockToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromDoorToLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupFromDoorToLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PickupFromDoorToLotResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupForRelocate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSpecialInstructions" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPriorityMove" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PickupForRelocateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PickupForRelocateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParkAtDoorDestination">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParkAtDoorDestinationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ParkAtDoorDestinationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParkAtLotLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParkAtLotLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ParkAtLotLocationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParkAtWashDockLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tMove" type="tns:TrailerMoveTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParkAtWashDockLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ParkAtWashDockLocationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOpenTaskCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOpenTaskCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetOpenTaskCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTaskCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTaskCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserTaskCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTasks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserTasksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserTasksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TasksDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllOpenTasks">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllOpenTasksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllOpenTasksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TasksDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignTaskToUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignTaskToUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AssignTaskToUserResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaskFinished">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaskFinishedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaskFinishedResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompleteTaskByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pTaskID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTaskType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTrailerSystemID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompleteTaskByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CompleteTaskByUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsMoveCancelled">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pOrigMoveID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsMoveCancelledResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsMoveCancelledResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsMoveTaken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pMoveID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsMoveTakenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsMoveTakenResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMoveChecksum">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMoveChecksumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMoveChecksumResult" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetServerTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrailerSeals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pTrailerSystemId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSeal1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSeal2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSeal3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTrailerSealsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTrailerSealsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBuildings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBuildingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBuildingsResult" type="tns:ArrayOfBuilding" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBuilding">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Building" nillable="true" type="tns:Building" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Building">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Location" type="tns:Point" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BackColor" type="tns:Color" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForeColor" type="tns:Color" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildingType" type="tns:DropDestType" />
+          <s:element minOccurs="0" maxOccurs="1" name="DropLocationType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemData" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Point">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Color" />
+      <s:simpleType name="DropDestType">
+        <s:restriction base="s:string">
+          <s:enumeration value="WASH" />
+          <s:enumeration value="DOOR" />
+          <s:enumeration value="LOT" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetBuildingsByDroptype">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DropType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBuildingsByDroptypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBuildingsByDroptypeResult" type="tns:ArrayOfBuilding" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDoors">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuildingID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDoorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDoorsResult" type="tns:ArrayOfDoor" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDoor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Door" nillable="true" type="tns:Door" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Door">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DoorName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DoorID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingLocation" type="tns:Building" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoorState" type="tns:n_DoorState" />
+          <s:element minOccurs="0" maxOccurs="1" name="FriendlyName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="n_DoorState">
+        <s:restriction base="s:string">
+          <s:enumeration value="InactiveNoTrailer" />
+          <s:enumeration value="TrailerCalledToDoor" />
+          <s:enumeration value="TrailerMovingToDoor" />
+          <s:enumeration value="TrailerInDoor" />
+          <s:enumeration value="TrailerCalledOutDoor" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CallTrailerMoveToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNewTemp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPalletsNeeded" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDoor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStopOffLocation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSpecialInstructions" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPriorityMove" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserInitials" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallTrailerMoveToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallTrailerMoveToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallTrailerMoveOutDoorToLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSpecialInstructions" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPriorityMove" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallTrailerMoveOutDoorToLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallTrailerMoveOutDoorToLotResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallTrailerMoveOutDoorToDoor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pSpecialInstructions" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pPriorityMove" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNextDoor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallTrailerMoveOutDoorToDoorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallTrailerMoveOutDoorToDoorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailerMoves">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pSystemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTrailerMovesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTrailerMovesResult" type="tns:ArrayOfTrailerMoveTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPalletTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DetailsText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Carrier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PalletType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPalletTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddPalletTaskResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBasicTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaskDetails" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddBasicTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddBasicTaskResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskTextItems">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTaskTextItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaskTextItemsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+                <s:attribute fixed="http://tempuri.org/TaskTextDataSet.xsd" name="namespace" />
+                <s:attribute fixed="TaskTextDataTable" name="tableTypeName" />
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaskArgsList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTaskArgsListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaskArgsListResult" type="tns:ArrayOfTaskTextArgTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaskTextArgTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaskTextArgTO" nillable="true" type="tns:TaskTextArgTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaskTextArgTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TaskTextType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetUpdateTrailerDS">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUpdateTrailerDSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpdateTrailerDSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/UpdateTrailerDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostUpdateTrailerInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateTrailerDS">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/UpdateTrailerDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostUpdateTrailerInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PostUpdateTrailerInfoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDoorTrailers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDoorTrailersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDoorTrailersResult" type="tns:ArrayOfTrailer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelTrailerMoves">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pMoves" type="tns:ArrayOfTrailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelTrailerMovesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelTrailerMovesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompletedMovesByDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCompletedMovesByDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompletedMovesByDateResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/MovesDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreCoolingTrailers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPreCoolingTrailersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreCoolingTrailersResult" type="tns:ArrayOfPreCoolTrailerTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPreCoolTrailerTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PreCoolTrailerTO" nillable="true" type="tns:PreCoolTrailerTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PreCoolTrailerTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SystemID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Carrier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrailerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoadStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Classification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Precooling" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrecoolStarted" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PalletsOnBoard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrecoolRequested" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StopRequested" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SetPointCelsius" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPreCoolingTrailersByTrailerID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreCoolingTrailersByTrailerIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreCoolingTrailersByTrailerIDResult" type="tns:ArrayOfPreCoolTrailerTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreCoolingTrailersByCarrier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pCarrier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreCoolingTrailersByCarrierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreCoolingTrailersByCarrierResult" type="tns:ArrayOfPreCoolTrailerTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPrecoolTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTemperature" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pScheduledDateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pDetails" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="tns:KarLotUser" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:PreCoolTrailerTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNotifyEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPrecoolTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddPrecoolTaskResult" type="tns:PreCoolTrailerTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddStopPrecoolTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pDetails" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="tns:KarLotUser" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:PreCoolTrailerTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="pNotifyEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddStopPrecoolTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddStopPrecoolTaskResult" type="tns:PreCoolTrailerTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelPrecoolTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pUser" type="tns:KarLotUser" />
+            <s:element minOccurs="1" maxOccurs="1" name="pTaskID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelPrecoolTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelPrecoolTaskResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrecoolingTasksByTrailerSystemID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pSystemID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrecoolingTasksByTrailerSystemIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrecoolingTasksByTrailerSystemIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TasksDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveWashDockTrailers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetActiveWashDockTrailersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveWashDockTrailersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/MovesDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallOutWashDockToLot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pWashType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pWashedBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tMoveID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTrailer" type="tns:Trailer" />
+            <s:element minOccurs="0" maxOccurs="1" name="pUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pStationID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallOutWashDockToLotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CallOutWashDockToLotResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CallOutWashdockToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:CallOutWashdockToDoor" />
+  </wsdl:message>
+  <wsdl:message name="CallOutWashdockToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:CallOutWashdockToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTrailerToWashDockSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTrailerToWashDock" />
+  </wsdl:message>
+  <wsdl:message name="AddTrailerToWashDockSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTrailerToWashDockResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallOutWashDockNoMoveSoapIn">
+    <wsdl:part name="parameters" element="tns:CallOutWashDockNoMove" />
+  </wsdl:message>
+  <wsdl:message name="CallOutWashDockNoMoveSoapOut">
+    <wsdl:part name="parameters" element="tns:CallOutWashDockNoMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallToWashDockSoapIn">
+    <wsdl:part name="parameters" element="tns:CallToWashDock" />
+  </wsdl:message>
+  <wsdl:message name="CallToWashDockSoapOut">
+    <wsdl:part name="parameters" element="tns:CallToWashDockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearTrailerExceptionSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearTrailerException" />
+  </wsdl:message>
+  <wsdl:message name="ClearTrailerExceptionSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearTrailerExceptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetKarDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetKarData" />
+  </wsdl:message>
+  <wsdl:message name="GetKarDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetKarDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundSheetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundSheet" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundSheetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundSheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCarrierListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCarrierList" />
+  </wsdl:message>
+  <wsdl:message name="GetCarrierListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCarrierListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerRowByBarcodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerRowByBarcode" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerRowByBarcodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerRowByBarcodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrailerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTrailer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTrailerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTrailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailerDataBySystemIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrailerDataBySystemID" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailerDataBySystemIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrailerDataBySystemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrailer" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrailerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundSheetRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundSheetRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundSheetRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundSheetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOutboundSheetRecordsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOutboundSheetRecords" />
+  </wsdl:message>
+  <wsdl:message name="GetOutboundSheetRecordsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOutboundSheetRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MarkForYardCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:MarkForYardCheck" />
+  </wsdl:message>
+  <wsdl:message name="MarkForYardCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:MarkForYardCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetYardCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetYardCheck" />
+  </wsdl:message>
+  <wsdl:message name="ResetYardCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetYardCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerCount" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailers" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessYardCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessYardCheck" />
+  </wsdl:message>
+  <wsdl:message name="ProcessYardCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessYardCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYardCheckRefDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYardCheckRefData" />
+  </wsdl:message>
+  <wsdl:message name="GetYardCheckRefDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYardCheckRefDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetYardCheckReviewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetYardCheckReview" />
+  </wsdl:message>
+  <wsdl:message name="GetYardCheckReviewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetYardCheckReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="UseRackSoapIn">
+    <wsdl:part name="parameters" element="tns:UseRack" />
+  </wsdl:message>
+  <wsdl:message name="UseRackSoapOut">
+    <wsdl:part name="parameters" element="tns:UseRackResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCarriersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveCarriers" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCarriersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveCarriersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByScacSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByScac" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByScacSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByScacResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByTrailerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByTrailerID" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByTrailerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByTrailerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersDatasetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersDataset" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersDatasetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersDatasetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByLoadStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByLoadStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailersByLoadStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailersByLoadStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTrailerOutOfServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTrailerOutOfService" />
+  </wsdl:message>
+  <wsdl:message name="SetTrailerOutOfServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTrailerOutOfServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTrailerInServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTrailerInService" />
+  </wsdl:message>
+  <wsdl:message name="SetTrailerInServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTrailerInServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMovesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoves" />
+  </wsdl:message>
+  <wsdl:message name="GetMovesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMovesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledToDoor" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledFromWashDockSoapIn">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledFromWashDock" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledFromWashDockSoapOut">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledFromWashDockResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledOutDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledOutDoor" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledOutDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledOutDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledDoorToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledDoorToDoor" />
+  </wsdl:message>
+  <wsdl:message name="TakeMoveCalledDoorToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:TakeMoveCalledDoorToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromDoorToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupFromDoorToDoor" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromDoorToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupFromDoorToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromLotToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupFromLotToDoor" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromLotToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupFromLotToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromWashDockToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupFromWashDockToDoor" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromWashDockToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupFromWashDockToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromDoorToLotSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupFromDoorToLot" />
+  </wsdl:message>
+  <wsdl:message name="PickupFromDoorToLotSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupFromDoorToLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="PickupForRelocateSoapIn">
+    <wsdl:part name="parameters" element="tns:PickupForRelocate" />
+  </wsdl:message>
+  <wsdl:message name="PickupForRelocateSoapOut">
+    <wsdl:part name="parameters" element="tns:PickupForRelocateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParkAtDoorDestinationSoapIn">
+    <wsdl:part name="parameters" element="tns:ParkAtDoorDestination" />
+  </wsdl:message>
+  <wsdl:message name="ParkAtDoorDestinationSoapOut">
+    <wsdl:part name="parameters" element="tns:ParkAtDoorDestinationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParkAtLotLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:ParkAtLotLocation" />
+  </wsdl:message>
+  <wsdl:message name="ParkAtLotLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:ParkAtLotLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParkAtWashDockLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:ParkAtWashDockLocation" />
+  </wsdl:message>
+  <wsdl:message name="ParkAtWashDockLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:ParkAtWashDockLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenTaskCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOpenTaskCount" />
+  </wsdl:message>
+  <wsdl:message name="GetOpenTaskCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOpenTaskCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTaskCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserTaskCount" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTaskCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserTaskCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserTasks" />
+  </wsdl:message>
+  <wsdl:message name="GetUserTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOpenTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllOpenTasks" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOpenTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllOpenTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssignTaskToUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignTaskToUser" />
+  </wsdl:message>
+  <wsdl:message name="AssignTaskToUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignTaskToUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaskFinishedSoapIn">
+    <wsdl:part name="parameters" element="tns:TaskFinished" />
+  </wsdl:message>
+  <wsdl:message name="TaskFinishedSoapOut">
+    <wsdl:part name="parameters" element="tns:TaskFinishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompleteTaskByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:CompleteTaskByUser" />
+  </wsdl:message>
+  <wsdl:message name="CompleteTaskByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:CompleteTaskByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsMoveCancelledSoapIn">
+    <wsdl:part name="parameters" element="tns:IsMoveCancelled" />
+  </wsdl:message>
+  <wsdl:message name="IsMoveCancelledSoapOut">
+    <wsdl:part name="parameters" element="tns:IsMoveCancelledResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsMoveTakenSoapIn">
+    <wsdl:part name="parameters" element="tns:IsMoveTaken" />
+  </wsdl:message>
+  <wsdl:message name="IsMoveTakenSoapOut">
+    <wsdl:part name="parameters" element="tns:IsMoveTakenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveChecksumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMoveChecksum" />
+  </wsdl:message>
+  <wsdl:message name="GetMoveChecksumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMoveChecksumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerTime" />
+  </wsdl:message>
+  <wsdl:message name="GetServerTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTrailerSealsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTrailerSeals" />
+  </wsdl:message>
+  <wsdl:message name="SetTrailerSealsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTrailerSealsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBuildingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBuildings" />
+  </wsdl:message>
+  <wsdl:message name="GetBuildingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBuildingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBuildingsByDroptypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBuildingsByDroptype" />
+  </wsdl:message>
+  <wsdl:message name="GetBuildingsByDroptypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBuildingsByDroptypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDoorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDoors" />
+  </wsdl:message>
+  <wsdl:message name="GetDoorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDoorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallTrailerMoveToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:CallTrailerMoveToDoor" />
+  </wsdl:message>
+  <wsdl:message name="CallTrailerMoveToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:CallTrailerMoveToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallTrailerMoveOutDoorToLotSoapIn">
+    <wsdl:part name="parameters" element="tns:CallTrailerMoveOutDoorToLot" />
+  </wsdl:message>
+  <wsdl:message name="CallTrailerMoveOutDoorToLotSoapOut">
+    <wsdl:part name="parameters" element="tns:CallTrailerMoveOutDoorToLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallTrailerMoveOutDoorToDoorSoapIn">
+    <wsdl:part name="parameters" element="tns:CallTrailerMoveOutDoorToDoor" />
+  </wsdl:message>
+  <wsdl:message name="CallTrailerMoveOutDoorToDoorSoapOut">
+    <wsdl:part name="parameters" element="tns:CallTrailerMoveOutDoorToDoorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerMovesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerMoves" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTrailerMovesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTrailerMovesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPalletTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPalletTask" />
+  </wsdl:message>
+  <wsdl:message name="AddPalletTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPalletTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddBasicTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:AddBasicTask" />
+  </wsdl:message>
+  <wsdl:message name="AddBasicTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:AddBasicTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskTextItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaskTextItems" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskTextItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskTextItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskArgsListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaskArgsList" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskArgsListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaskArgsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateTrailerDSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpdateTrailerDS" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateTrailerDSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpdateTrailerDSResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostUpdateTrailerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:PostUpdateTrailerInfo" />
+  </wsdl:message>
+  <wsdl:message name="PostUpdateTrailerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:PostUpdateTrailerInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDoorTrailersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDoorTrailers" />
+  </wsdl:message>
+  <wsdl:message name="GetDoorTrailersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDoorTrailersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelTrailerMovesSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelTrailerMoves" />
+  </wsdl:message>
+  <wsdl:message name="CancelTrailerMovesSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelTrailerMovesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompletedMovesByDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompletedMovesByDate" />
+  </wsdl:message>
+  <wsdl:message name="GetCompletedMovesByDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompletedMovesByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreCoolingTrailersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreCoolingTrailers" />
+  </wsdl:message>
+  <wsdl:message name="GetPreCoolingTrailersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreCoolingTrailersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreCoolingTrailersByTrailerIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreCoolingTrailersByTrailerID" />
+  </wsdl:message>
+  <wsdl:message name="GetPreCoolingTrailersByTrailerIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreCoolingTrailersByTrailerIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreCoolingTrailersByCarrierSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreCoolingTrailersByCarrier" />
+  </wsdl:message>
+  <wsdl:message name="GetPreCoolingTrailersByCarrierSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreCoolingTrailersByCarrierResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPrecoolTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPrecoolTask" />
+  </wsdl:message>
+  <wsdl:message name="AddPrecoolTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPrecoolTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddStopPrecoolTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:AddStopPrecoolTask" />
+  </wsdl:message>
+  <wsdl:message name="AddStopPrecoolTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:AddStopPrecoolTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelPrecoolTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelPrecoolTask" />
+  </wsdl:message>
+  <wsdl:message name="CancelPrecoolTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelPrecoolTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrecoolingTasksByTrailerSystemIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrecoolingTasksByTrailerSystemID" />
+  </wsdl:message>
+  <wsdl:message name="GetPrecoolingTasksByTrailerSystemIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrecoolingTasksByTrailerSystemIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveWashDockTrailersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveWashDockTrailers" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveWashDockTrailersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveWashDockTrailersResponse" />
+  </wsdl:message>
+  <wsdl:message name="CallOutWashDockToLotSoapIn">
+    <wsdl:part name="parameters" element="tns:CallOutWashDockToLot" />
+  </wsdl:message>
+  <wsdl:message name="CallOutWashDockToLotSoapOut">
+    <wsdl:part name="parameters" element="tns:CallOutWashDockToLotResponse" />
+  </wsdl:message>
+  <wsdl:portType name="kar_smartclient_webserviceSoap">
+    <wsdl:operation name="CallOutWashdockToDoor">
+      <wsdl:input message="tns:CallOutWashdockToDoorSoapIn" />
+      <wsdl:output message="tns:CallOutWashdockToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTrailerToWashDock">
+      <wsdl:input message="tns:AddTrailerToWashDockSoapIn" />
+      <wsdl:output message="tns:AddTrailerToWashDockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallOutWashDockNoMove">
+      <wsdl:input message="tns:CallOutWashDockNoMoveSoapIn" />
+      <wsdl:output message="tns:CallOutWashDockNoMoveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallToWashDock">
+      <wsdl:input message="tns:CallToWashDockSoapIn" />
+      <wsdl:output message="tns:CallToWashDockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearTrailerException">
+      <wsdl:input message="tns:ClearTrailerExceptionSoapIn" />
+      <wsdl:output message="tns:ClearTrailerExceptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKarData">
+      <wsdl:input message="tns:GetKarDataSoapIn" />
+      <wsdl:output message="tns:GetKarDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundSheet">
+      <wsdl:input message="tns:GetInboundSheetSoapIn" />
+      <wsdl:output message="tns:GetInboundSheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCarrierList">
+      <wsdl:input message="tns:GetCarrierListSoapIn" />
+      <wsdl:output message="tns:GetCarrierListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerRowByBarcode">
+      <wsdl:input message="tns:GetActiveTrailerRowByBarcodeSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailerRowByBarcodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrailer">
+      <wsdl:input message="tns:UpdateTrailerSoapIn" />
+      <wsdl:output message="tns:UpdateTrailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailerDataBySystemID">
+      <wsdl:input message="tns:GetTrailerDataBySystemIDSoapIn" />
+      <wsdl:output message="tns:GetTrailerDataBySystemIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailer">
+      <wsdl:input message="tns:GetTrailerSoapIn" />
+      <wsdl:output message="tns:GetTrailerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundSheetRecords">
+      <wsdl:input message="tns:GetInboundSheetRecordsSoapIn" />
+      <wsdl:output message="tns:GetInboundSheetRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutboundSheetRecords">
+      <wsdl:input message="tns:GetOutboundSheetRecordsSoapIn" />
+      <wsdl:output message="tns:GetOutboundSheetRecordsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkForYardCheck">
+      <wsdl:input message="tns:MarkForYardCheckSoapIn" />
+      <wsdl:output message="tns:MarkForYardCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetYardCheck">
+      <wsdl:input message="tns:ResetYardCheckSoapIn" />
+      <wsdl:output message="tns:ResetYardCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerCount">
+      <wsdl:input message="tns:GetActiveTrailerCountSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailerCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailers">
+      <wsdl:input message="tns:GetActiveTrailersSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessYardCheck">
+      <wsdl:input message="tns:ProcessYardCheckSoapIn" />
+      <wsdl:output message="tns:ProcessYardCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYardCheckRefData">
+      <wsdl:input message="tns:GetYardCheckRefDataSoapIn" />
+      <wsdl:output message="tns:GetYardCheckRefDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetYardCheckReview">
+      <wsdl:input message="tns:GetYardCheckReviewSoapIn" />
+      <wsdl:output message="tns:GetYardCheckReviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UseRack">
+      <wsdl:input message="tns:UseRackSoapIn" />
+      <wsdl:output message="tns:UseRackSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCarriers">
+      <wsdl:input message="tns:GetActiveCarriersSoapIn" />
+      <wsdl:output message="tns:GetActiveCarriersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByScac">
+      <wsdl:input message="tns:GetActiveTrailersByScacSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailersByScacSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByTrailerID">
+      <wsdl:input message="tns:GetActiveTrailersByTrailerIDSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailersByTrailerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersDataset">
+      <wsdl:input message="tns:GetActiveTrailersDatasetSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailersDatasetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByLoadStatus">
+      <wsdl:input message="tns:GetActiveTrailersByLoadStatusSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailersByLoadStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerOutOfService">
+      <wsdl:input message="tns:SetTrailerOutOfServiceSoapIn" />
+      <wsdl:output message="tns:SetTrailerOutOfServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerInService">
+      <wsdl:input message="tns:SetTrailerInServiceSoapIn" />
+      <wsdl:output message="tns:SetTrailerInServiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoves">
+      <wsdl:input message="tns:GetMovesSoapIn" />
+      <wsdl:output message="tns:GetMovesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledToDoor">
+      <wsdl:input message="tns:TakeMoveCalledToDoorSoapIn" />
+      <wsdl:output message="tns:TakeMoveCalledToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledFromWashDock">
+      <wsdl:input message="tns:TakeMoveCalledFromWashDockSoapIn" />
+      <wsdl:output message="tns:TakeMoveCalledFromWashDockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledOutDoor">
+      <wsdl:input message="tns:TakeMoveCalledOutDoorSoapIn" />
+      <wsdl:output message="tns:TakeMoveCalledOutDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledDoorToDoor">
+      <wsdl:input message="tns:TakeMoveCalledDoorToDoorSoapIn" />
+      <wsdl:output message="tns:TakeMoveCalledDoorToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromDoorToDoor">
+      <wsdl:input message="tns:PickupFromDoorToDoorSoapIn" />
+      <wsdl:output message="tns:PickupFromDoorToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromLotToDoor">
+      <wsdl:input message="tns:PickupFromLotToDoorSoapIn" />
+      <wsdl:output message="tns:PickupFromLotToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromWashDockToDoor">
+      <wsdl:input message="tns:PickupFromWashDockToDoorSoapIn" />
+      <wsdl:output message="tns:PickupFromWashDockToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromDoorToLot">
+      <wsdl:input message="tns:PickupFromDoorToLotSoapIn" />
+      <wsdl:output message="tns:PickupFromDoorToLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PickupForRelocate">
+      <wsdl:input message="tns:PickupForRelocateSoapIn" />
+      <wsdl:output message="tns:PickupForRelocateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtDoorDestination">
+      <wsdl:input message="tns:ParkAtDoorDestinationSoapIn" />
+      <wsdl:output message="tns:ParkAtDoorDestinationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtLotLocation">
+      <wsdl:input message="tns:ParkAtLotLocationSoapIn" />
+      <wsdl:output message="tns:ParkAtLotLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtWashDockLocation">
+      <wsdl:input message="tns:ParkAtWashDockLocationSoapIn" />
+      <wsdl:output message="tns:ParkAtWashDockLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenTaskCount">
+      <wsdl:input message="tns:GetOpenTaskCountSoapIn" />
+      <wsdl:output message="tns:GetOpenTaskCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTaskCount">
+      <wsdl:input message="tns:GetUserTaskCountSoapIn" />
+      <wsdl:output message="tns:GetUserTaskCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTasks">
+      <wsdl:input message="tns:GetUserTasksSoapIn" />
+      <wsdl:output message="tns:GetUserTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOpenTasks">
+      <wsdl:input message="tns:GetAllOpenTasksSoapIn" />
+      <wsdl:output message="tns:GetAllOpenTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToUser">
+      <wsdl:input message="tns:AssignTaskToUserSoapIn" />
+      <wsdl:output message="tns:AssignTaskToUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TaskFinished">
+      <wsdl:input message="tns:TaskFinishedSoapIn" />
+      <wsdl:output message="tns:TaskFinishedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskByUser">
+      <wsdl:input message="tns:CompleteTaskByUserSoapIn" />
+      <wsdl:output message="tns:CompleteTaskByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMoveCancelled">
+      <wsdl:input message="tns:IsMoveCancelledSoapIn" />
+      <wsdl:output message="tns:IsMoveCancelledSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsMoveTaken">
+      <wsdl:input message="tns:IsMoveTakenSoapIn" />
+      <wsdl:output message="tns:IsMoveTakenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveChecksum">
+      <wsdl:input message="tns:GetMoveChecksumSoapIn" />
+      <wsdl:output message="tns:GetMoveChecksumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <wsdl:input message="tns:GetServerTimeSoapIn" />
+      <wsdl:output message="tns:GetServerTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerSeals">
+      <wsdl:input message="tns:SetTrailerSealsSoapIn" />
+      <wsdl:output message="tns:SetTrailerSealsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildings">
+      <wsdl:input message="tns:GetBuildingsSoapIn" />
+      <wsdl:output message="tns:GetBuildingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildingsByDroptype">
+      <wsdl:input message="tns:GetBuildingsByDroptypeSoapIn" />
+      <wsdl:output message="tns:GetBuildingsByDroptypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoors">
+      <wsdl:input message="tns:GetDoorsSoapIn" />
+      <wsdl:output message="tns:GetDoorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveToDoor">
+      <wsdl:input message="tns:CallTrailerMoveToDoorSoapIn" />
+      <wsdl:output message="tns:CallTrailerMoveToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveOutDoorToLot">
+      <wsdl:input message="tns:CallTrailerMoveOutDoorToLotSoapIn" />
+      <wsdl:output message="tns:CallTrailerMoveOutDoorToLotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveOutDoorToDoor">
+      <wsdl:input message="tns:CallTrailerMoveOutDoorToDoorSoapIn" />
+      <wsdl:output message="tns:CallTrailerMoveOutDoorToDoorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerMoves">
+      <wsdl:input message="tns:GetActiveTrailerMovesSoapIn" />
+      <wsdl:output message="tns:GetActiveTrailerMovesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPalletTask">
+      <wsdl:input message="tns:AddPalletTaskSoapIn" />
+      <wsdl:output message="tns:AddPalletTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBasicTask">
+      <wsdl:input message="tns:AddBasicTaskSoapIn" />
+      <wsdl:output message="tns:AddBasicTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskTextItems">
+      <wsdl:input message="tns:GetTaskTextItemsSoapIn" />
+      <wsdl:output message="tns:GetTaskTextItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskArgsList">
+      <wsdl:input message="tns:GetTaskArgsListSoapIn" />
+      <wsdl:output message="tns:GetTaskArgsListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateTrailerDS">
+      <wsdl:input message="tns:GetUpdateTrailerDSSoapIn" />
+      <wsdl:output message="tns:GetUpdateTrailerDSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostUpdateTrailerInfo">
+      <wsdl:input message="tns:PostUpdateTrailerInfoSoapIn" />
+      <wsdl:output message="tns:PostUpdateTrailerInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoorTrailers">
+      <wsdl:input message="tns:GetDoorTrailersSoapIn" />
+      <wsdl:output message="tns:GetDoorTrailersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelTrailerMoves">
+      <wsdl:input message="tns:CancelTrailerMovesSoapIn" />
+      <wsdl:output message="tns:CancelTrailerMovesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletedMovesByDate">
+      <wsdl:input message="tns:GetCompletedMovesByDateSoapIn" />
+      <wsdl:output message="tns:GetCompletedMovesByDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailers">
+      <wsdl:input message="tns:GetPreCoolingTrailersSoapIn" />
+      <wsdl:output message="tns:GetPreCoolingTrailersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailersByTrailerID">
+      <wsdl:input message="tns:GetPreCoolingTrailersByTrailerIDSoapIn" />
+      <wsdl:output message="tns:GetPreCoolingTrailersByTrailerIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailersByCarrier">
+      <wsdl:input message="tns:GetPreCoolingTrailersByCarrierSoapIn" />
+      <wsdl:output message="tns:GetPreCoolingTrailersByCarrierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrecoolTask">
+      <wsdl:input message="tns:AddPrecoolTaskSoapIn" />
+      <wsdl:output message="tns:AddPrecoolTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddStopPrecoolTask">
+      <wsdl:input message="tns:AddStopPrecoolTaskSoapIn" />
+      <wsdl:output message="tns:AddStopPrecoolTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelPrecoolTask">
+      <wsdl:input message="tns:CancelPrecoolTaskSoapIn" />
+      <wsdl:output message="tns:CancelPrecoolTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrecoolingTasksByTrailerSystemID">
+      <wsdl:input message="tns:GetPrecoolingTasksByTrailerSystemIDSoapIn" />
+      <wsdl:output message="tns:GetPrecoolingTasksByTrailerSystemIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveWashDockTrailers">
+      <wsdl:input message="tns:GetActiveWashDockTrailersSoapIn" />
+      <wsdl:output message="tns:GetActiveWashDockTrailersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CallOutWashDockToLot">
+      <wsdl:input message="tns:CallOutWashDockToLotSoapIn" />
+      <wsdl:output message="tns:CallOutWashDockToLotSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="kar_smartclient_webserviceSoap" type="tns:kar_smartclient_webserviceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CallOutWashdockToDoor">
+      <soap:operation soapAction="http://karservices.com/CallOutWashdockToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTrailerToWashDock">
+      <soap:operation soapAction="http://karservices.com/AddTrailerToWashDock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallOutWashDockNoMove">
+      <soap:operation soapAction="http://karservices.com/CallOutWashDockNoMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallToWashDock">
+      <soap:operation soapAction="http://karservices.com/CallToWashDock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearTrailerException">
+      <soap:operation soapAction="http://karservices.com/ClearTrailerException" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKarData">
+      <soap:operation soapAction="http://karservices.com/GetKarData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundSheet">
+      <soap:operation soapAction="http://karservices.com/GetInboundSheet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarrierList">
+      <soap:operation soapAction="http://karservices.com/GetCarrierList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerRowByBarcode">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailerRowByBarcode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrailer">
+      <soap:operation soapAction="http://karservices.com/UpdateTrailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailerDataBySystemID">
+      <soap:operation soapAction="http://karservices.com/GetTrailerDataBySystemID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailer">
+      <soap:operation soapAction="http://karservices.com/GetTrailer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundSheetRecords">
+      <soap:operation soapAction="http://karservices.com/GetInboundSheetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutboundSheetRecords">
+      <soap:operation soapAction="http://karservices.com/GetOutboundSheetRecords" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkForYardCheck">
+      <soap:operation soapAction="http://karservices.com/MarkForYardCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetYardCheck">
+      <soap:operation soapAction="http://karservices.com/ResetYardCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerCount">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailers">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessYardCheck">
+      <soap:operation soapAction="http://karservices.com/ProcessYardCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYardCheckRefData">
+      <soap:operation soapAction="http://karservices.com/GetYardCheckRefData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYardCheckReview">
+      <soap:operation soapAction="http://karservices.com/GetYardCheckReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UseRack">
+      <soap:operation soapAction="http://karservices.com/UseRack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCarriers">
+      <soap:operation soapAction="http://karservices.com/GetActiveCarriers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByScac">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailersByScac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByTrailerID">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailersByTrailerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersDataset">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailersDataset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByLoadStatus">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailersByLoadStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerOutOfService">
+      <soap:operation soapAction="http://karservices.com/SetTrailerOutOfService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerInService">
+      <soap:operation soapAction="http://karservices.com/SetTrailerInService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoves">
+      <soap:operation soapAction="http://karservices.com/GetMoves" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledToDoor">
+      <soap:operation soapAction="http://karservices.com/TakeMoveCalledToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledFromWashDock">
+      <soap:operation soapAction="http://karservices.com/TakeMoveCalledFromWashDock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledOutDoor">
+      <soap:operation soapAction="http://karservices.com/TakeMoveCalledOutDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledDoorToDoor">
+      <soap:operation soapAction="http://karservices.com/TakeMoveCalledDoorToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromDoorToDoor">
+      <soap:operation soapAction="http://karservices.com/PickupFromDoorToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromLotToDoor">
+      <soap:operation soapAction="http://karservices.com/PickupFromLotToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromWashDockToDoor">
+      <soap:operation soapAction="http://karservices.com/PickupFromWashDockToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromDoorToLot">
+      <soap:operation soapAction="http://karservices.com/PickupFromDoorToLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupForRelocate">
+      <soap:operation soapAction="http://karservices.com/PickupForRelocate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtDoorDestination">
+      <soap:operation soapAction="http://karservices.com/ParkAtDoorDestination" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtLotLocation">
+      <soap:operation soapAction="http://karservices.com/ParkAtLotLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtWashDockLocation">
+      <soap:operation soapAction="http://karservices.com/ParkAtWashDockLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenTaskCount">
+      <soap:operation soapAction="http://karservices.com/GetOpenTaskCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTaskCount">
+      <soap:operation soapAction="http://karservices.com/GetUserTaskCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTasks">
+      <soap:operation soapAction="http://karservices.com/GetUserTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOpenTasks">
+      <soap:operation soapAction="http://karservices.com/GetAllOpenTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToUser">
+      <soap:operation soapAction="http://karservices.com/AssignTaskToUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaskFinished">
+      <soap:operation soapAction="http://karservices.com/TaskFinished" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskByUser">
+      <soap:operation soapAction="http://karservices.com/CompleteTaskByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMoveCancelled">
+      <soap:operation soapAction="http://karservices.com/IsMoveCancelled" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMoveTaken">
+      <soap:operation soapAction="http://karservices.com/IsMoveTaken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveChecksum">
+      <soap:operation soapAction="http://karservices.com/GetMoveChecksum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <soap:operation soapAction="http://karservices.com/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerSeals">
+      <soap:operation soapAction="http://karservices.com/SetTrailerSeals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildings">
+      <soap:operation soapAction="http://karservices.com/GetBuildings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildingsByDroptype">
+      <soap:operation soapAction="http://karservices.com/GetBuildingsByDroptype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoors">
+      <soap:operation soapAction="http://karservices.com/GetDoors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveToDoor">
+      <soap:operation soapAction="http://karservices.com/CallTrailerMoveToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveOutDoorToLot">
+      <soap:operation soapAction="http://karservices.com/CallTrailerMoveOutDoorToLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveOutDoorToDoor">
+      <soap:operation soapAction="http://karservices.com/CallTrailerMoveOutDoorToDoor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerMoves">
+      <soap:operation soapAction="http://karservices.com/GetActiveTrailerMoves" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPalletTask">
+      <soap:operation soapAction="http://karservices.com/AddPalletTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBasicTask">
+      <soap:operation soapAction="http://karservices.com/AddBasicTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskTextItems">
+      <soap:operation soapAction="http://karservices.com/GetTaskTextItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskArgsList">
+      <soap:operation soapAction="http://karservices.com/GetTaskArgsList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateTrailerDS">
+      <soap:operation soapAction="http://karservices.com/GetUpdateTrailerDS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostUpdateTrailerInfo">
+      <soap:operation soapAction="http://karservices.com/PostUpdateTrailerInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoorTrailers">
+      <soap:operation soapAction="http://karservices.com/GetDoorTrailers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTrailerMoves">
+      <soap:operation soapAction="http://karservices.com/CancelTrailerMoves" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletedMovesByDate">
+      <soap:operation soapAction="http://karservices.com/GetCompletedMovesByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailers">
+      <soap:operation soapAction="http://karservices.com/GetPreCoolingTrailers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailersByTrailerID">
+      <soap:operation soapAction="http://karservices.com/GetPreCoolingTrailersByTrailerID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailersByCarrier">
+      <soap:operation soapAction="http://karservices.com/GetPreCoolingTrailersByCarrier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrecoolTask">
+      <soap:operation soapAction="http://karservices.com/AddPrecoolTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStopPrecoolTask">
+      <soap:operation soapAction="http://karservices.com/AddStopPrecoolTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelPrecoolTask">
+      <soap:operation soapAction="http://karservices.com/CancelPrecoolTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrecoolingTasksByTrailerSystemID">
+      <soap:operation soapAction="http://karservices.com/GetPrecoolingTasksByTrailerSystemID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveWashDockTrailers">
+      <soap:operation soapAction="http://karservices.com/GetActiveWashDockTrailers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallOutWashDockToLot">
+      <soap:operation soapAction="http://karservices.com/CallOutWashDockToLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="kar_smartclient_webserviceSoap12" type="tns:kar_smartclient_webserviceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CallOutWashdockToDoor">
+      <soap12:operation soapAction="http://karservices.com/CallOutWashdockToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTrailerToWashDock">
+      <soap12:operation soapAction="http://karservices.com/AddTrailerToWashDock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallOutWashDockNoMove">
+      <soap12:operation soapAction="http://karservices.com/CallOutWashDockNoMove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallToWashDock">
+      <soap12:operation soapAction="http://karservices.com/CallToWashDock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearTrailerException">
+      <soap12:operation soapAction="http://karservices.com/ClearTrailerException" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKarData">
+      <soap12:operation soapAction="http://karservices.com/GetKarData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundSheet">
+      <soap12:operation soapAction="http://karservices.com/GetInboundSheet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCarrierList">
+      <soap12:operation soapAction="http://karservices.com/GetCarrierList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerRowByBarcode">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailerRowByBarcode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTrailer">
+      <soap12:operation soapAction="http://karservices.com/UpdateTrailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailerDataBySystemID">
+      <soap12:operation soapAction="http://karservices.com/GetTrailerDataBySystemID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailer">
+      <soap12:operation soapAction="http://karservices.com/GetTrailer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundSheetRecords">
+      <soap12:operation soapAction="http://karservices.com/GetInboundSheetRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutboundSheetRecords">
+      <soap12:operation soapAction="http://karservices.com/GetOutboundSheetRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkForYardCheck">
+      <soap12:operation soapAction="http://karservices.com/MarkForYardCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetYardCheck">
+      <soap12:operation soapAction="http://karservices.com/ResetYardCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerCount">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailerCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailers">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessYardCheck">
+      <soap12:operation soapAction="http://karservices.com/ProcessYardCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYardCheckRefData">
+      <soap12:operation soapAction="http://karservices.com/GetYardCheckRefData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetYardCheckReview">
+      <soap12:operation soapAction="http://karservices.com/GetYardCheckReview" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UseRack">
+      <soap12:operation soapAction="http://karservices.com/UseRack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCarriers">
+      <soap12:operation soapAction="http://karservices.com/GetActiveCarriers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByScac">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailersByScac" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByTrailerID">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailersByTrailerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersDataset">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailersDataset" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailersByLoadStatus">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailersByLoadStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerOutOfService">
+      <soap12:operation soapAction="http://karservices.com/SetTrailerOutOfService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerInService">
+      <soap12:operation soapAction="http://karservices.com/SetTrailerInService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoves">
+      <soap12:operation soapAction="http://karservices.com/GetMoves" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledToDoor">
+      <soap12:operation soapAction="http://karservices.com/TakeMoveCalledToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledFromWashDock">
+      <soap12:operation soapAction="http://karservices.com/TakeMoveCalledFromWashDock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledOutDoor">
+      <soap12:operation soapAction="http://karservices.com/TakeMoveCalledOutDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TakeMoveCalledDoorToDoor">
+      <soap12:operation soapAction="http://karservices.com/TakeMoveCalledDoorToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromDoorToDoor">
+      <soap12:operation soapAction="http://karservices.com/PickupFromDoorToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromLotToDoor">
+      <soap12:operation soapAction="http://karservices.com/PickupFromLotToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromWashDockToDoor">
+      <soap12:operation soapAction="http://karservices.com/PickupFromWashDockToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupFromDoorToLot">
+      <soap12:operation soapAction="http://karservices.com/PickupFromDoorToLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PickupForRelocate">
+      <soap12:operation soapAction="http://karservices.com/PickupForRelocate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtDoorDestination">
+      <soap12:operation soapAction="http://karservices.com/ParkAtDoorDestination" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtLotLocation">
+      <soap12:operation soapAction="http://karservices.com/ParkAtLotLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParkAtWashDockLocation">
+      <soap12:operation soapAction="http://karservices.com/ParkAtWashDockLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenTaskCount">
+      <soap12:operation soapAction="http://karservices.com/GetOpenTaskCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTaskCount">
+      <soap12:operation soapAction="http://karservices.com/GetUserTaskCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTasks">
+      <soap12:operation soapAction="http://karservices.com/GetUserTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOpenTasks">
+      <soap12:operation soapAction="http://karservices.com/GetAllOpenTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTaskToUser">
+      <soap12:operation soapAction="http://karservices.com/AssignTaskToUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TaskFinished">
+      <soap12:operation soapAction="http://karservices.com/TaskFinished" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteTaskByUser">
+      <soap12:operation soapAction="http://karservices.com/CompleteTaskByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMoveCancelled">
+      <soap12:operation soapAction="http://karservices.com/IsMoveCancelled" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMoveTaken">
+      <soap12:operation soapAction="http://karservices.com/IsMoveTaken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveChecksum">
+      <soap12:operation soapAction="http://karservices.com/GetMoveChecksum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerTime">
+      <soap12:operation soapAction="http://karservices.com/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTrailerSeals">
+      <soap12:operation soapAction="http://karservices.com/SetTrailerSeals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildings">
+      <soap12:operation soapAction="http://karservices.com/GetBuildings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuildingsByDroptype">
+      <soap12:operation soapAction="http://karservices.com/GetBuildingsByDroptype" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoors">
+      <soap12:operation soapAction="http://karservices.com/GetDoors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveToDoor">
+      <soap12:operation soapAction="http://karservices.com/CallTrailerMoveToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveOutDoorToLot">
+      <soap12:operation soapAction="http://karservices.com/CallTrailerMoveOutDoorToLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallTrailerMoveOutDoorToDoor">
+      <soap12:operation soapAction="http://karservices.com/CallTrailerMoveOutDoorToDoor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTrailerMoves">
+      <soap12:operation soapAction="http://karservices.com/GetActiveTrailerMoves" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPalletTask">
+      <soap12:operation soapAction="http://karservices.com/AddPalletTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBasicTask">
+      <soap12:operation soapAction="http://karservices.com/AddBasicTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskTextItems">
+      <soap12:operation soapAction="http://karservices.com/GetTaskTextItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskArgsList">
+      <soap12:operation soapAction="http://karservices.com/GetTaskArgsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateTrailerDS">
+      <soap12:operation soapAction="http://karservices.com/GetUpdateTrailerDS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostUpdateTrailerInfo">
+      <soap12:operation soapAction="http://karservices.com/PostUpdateTrailerInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoorTrailers">
+      <soap12:operation soapAction="http://karservices.com/GetDoorTrailers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelTrailerMoves">
+      <soap12:operation soapAction="http://karservices.com/CancelTrailerMoves" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletedMovesByDate">
+      <soap12:operation soapAction="http://karservices.com/GetCompletedMovesByDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailers">
+      <soap12:operation soapAction="http://karservices.com/GetPreCoolingTrailers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailersByTrailerID">
+      <soap12:operation soapAction="http://karservices.com/GetPreCoolingTrailersByTrailerID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreCoolingTrailersByCarrier">
+      <soap12:operation soapAction="http://karservices.com/GetPreCoolingTrailersByCarrier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrecoolTask">
+      <soap12:operation soapAction="http://karservices.com/AddPrecoolTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddStopPrecoolTask">
+      <soap12:operation soapAction="http://karservices.com/AddStopPrecoolTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelPrecoolTask">
+      <soap12:operation soapAction="http://karservices.com/CancelPrecoolTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrecoolingTasksByTrailerSystemID">
+      <soap12:operation soapAction="http://karservices.com/GetPrecoolingTasksByTrailerSystemID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveWashDockTrailers">
+      <soap12:operation soapAction="http://karservices.com/GetActiveWashDockTrailers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CallOutWashDockToLot">
+      <soap12:operation soapAction="http://karservices.com/CallOutWashDockToLot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="kar_smartclient_webservice">
+    <wsdl:port name="kar_smartclient_webserviceSoap" binding="tns:kar_smartclient_webserviceSoap">
+      <soap:address location="http://guymon-ok.karservices.com/Webservice/Eservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="kar_smartclient_webserviceSoap12" binding="tns:kar_smartclient_webserviceSoap12">
+      <soap12:address location="http://guymon-ok.karservices.com/Webservice/Eservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
