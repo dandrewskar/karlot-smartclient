@@ -244,7 +244,7 @@ Partial Class MainForm
         Me.ViewActiveMovesToolStripMenuItem.Name = "ViewActiveMovesToolStripMenuItem"
         Me.ViewActiveMovesToolStripMenuItem.Size = New System.Drawing.Size(225, 22)
         Me.ViewActiveMovesToolStripMenuItem.Text = "View Active Moves"
-        Me.ViewActiveMovesToolStripMenuItem.Visible = False
+        Me.ViewActiveMovesToolStripMenuItem.Visible = True
         '
         'ManagePreCoolingTrailersToolStripMenuItem
         '
