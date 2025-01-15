@@ -91,7 +91,7 @@ Public Class MainForm
             TrailersToolstripButton.DropDownItems.Item("BarcodesToolStripMenuItem").Visible = False
         End If
 
-        If my.Settings.AllowTrailerCheckInOut = True Then
+        If My.Settings.AllowTrailerCheckInOut = True Then
             TrailersToolstripButton.DropDownItems.Item("CarriersToolStripMenuItem").Visible = False
         Else
             TrailersToolstripButton.DropDownItems.Item("CarriersToolStripMenuItem").Visible = False

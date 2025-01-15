@@ -1,9 +1,16 @@
+Imports System.Data.SqlClient
+Imports System.Runtime.CompilerServices
+Imports KAR_Lot_SmartClient.karservices.cactus.smartclient
+Imports KAR_Lot_SmartClient.MainForm
+Imports Microsoft.SqlServer
+
 Public Class ActiveTrailerView
 
     Dim MyWebService As New KAR_Lot_SmartClient.karservices.cactus.smartclient.kar_smartclient_webservice
     Dim MyTrailers As New KAR_Lot_SmartClient.karservices.cactus.smartclient.ActiveTrailerDataSet
     Dim TrGuid As Guid = Guid.NewGuid
     Dim MyWSBasic As New KAR_Lot_SmartClient.karservices.cactus.webservices.Service
+    Dim contextMenuForColumn1 As ContextMenu = New ContextMenu()
 
     Private Sub ActiveTrailerView_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Cursor = Cursors.WaitCursor
@@ -78,4 +85,79 @@ Public Class ActiveTrailerView
         Me.Cursor = Cursors.Arrow
 
     End Sub
+
+
+
+    'Private Sub ActiveTrailerGridView_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles ActiveTrailerGridView.CellMouseUp
+    '    If e.Button = MouseButtons.Right Then
+    '        Dim confMsg = MessageBox.Show("Do you want to Delete Active Trailer?", "Delete Active Trailer", MessageBoxButtons.YesNo)
+
+    '        If confMsg = DialogResult.Yes Then
+    '            Dim selectedrow As DataGridViewRow
+    '            selectedrow = ActiveTrailerGridView.Rows(e.RowIndex)
+    '            Dim id As Integer = selectedrow.Cells(3).Value
+
+    '            Try
+
+    '                Dim result As KAR_Lot_SmartClient.karservices.cactus.smartclient.Trailer() = MyWebService.GetActiveTrailersByTrailerID(id)
+
+
+    '                Dim systemId = result(0).SystemID
+
+    '                DeleteRecordFromDatabase(systemId)
+
+    '                'ActiveTrailerGridView.Rows.Remove(selectedrow)
+    '            Catch ex As Exception
+    '                ' Handle any exceptions
+    '                Console.WriteLine("Error calling WCF service: " & ex.Message)
+
+    '            Finally
+    '                ' Always close the client to release resources
+    '                'If MyWebService.State = ServiceModel.CommunicationState.Faulted Then
+    '                '    MyWebService.Abort()
+    '                'Else
+    '                '    MyWebService.Close()
+    '                'End If
+    '            End Try
+
+    '            'MessageBox.Show("Deleting")
+    '        End If
+
+
+
+
+    '    End If
+    'End Sub
+
+    Private Sub DeleteRecordFromDatabase(systemId As String)
+        Dim connectionString As String = "Server=tcp:prodkarlot.database.windows.net,1433;Initial Catalog=guymon_karlot;Persist Security Info=False;User ID=saadmin;Password=Yhaw9012Phaw9012;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30"
+        ' SQL query to update the record
+        Dim query As String = "UPDATE Trailers SET Active = 0 WHERE SystemId = @SystemId"
+
+        Using connection As New SqlConnection(connectionString)
+            Try
+                connection.Open()
+                Using command As New SqlCommand(query, connection)
+                    ' Add the ID parameter to the query
+                    command.Parameters.AddWithValue("@SystemId", systemId)
+
+                    ' Execute the DELETE query
+                    'Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                    'If rowsAffected > 0 Then
+                    '    MessageBox.Show("Record deleted successfully.")
+                    'Else
+                    '    MessageBox.Show("No record found to delete.")
+                    'End If
+                End Using
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message)
+            Finally
+                If connection.State = ConnectionState.Open Then
+                    connection.Close()
+                End If
+            End Try
+        End Using
+    End Sub
+
 End Class
